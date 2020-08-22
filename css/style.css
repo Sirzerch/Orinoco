@@ -10798,4 +10798,16 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+
+.card {
+  -webkit-transition: 400ms;
+  transition: 400ms;
+}
+
+.card:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  -webkit-box-shadow: 10px 10px 10px gray;
+          box-shadow: 10px 10px 10px gray;
+}
 /*# sourceMappingURL=style.css.map */

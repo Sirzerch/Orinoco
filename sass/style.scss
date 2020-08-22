@@ -2,3 +2,11 @@ $primary: #5c3710;
 
 @import "bootstrap/bootstrap";
 
+.card {
+    transition: 400ms;
+
+    &:hover {
+        transform: scale(1.03);
+        box-shadow: 10px 10px 10px gray;
+    }
+}
