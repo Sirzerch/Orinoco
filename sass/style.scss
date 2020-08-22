@@ -6,7 +6,37 @@ $primary: #5c3710;
     transition: 400ms;
 
     &:hover {
-        transform: scale(1.03);
+        transform: scale(1.01);
         box-shadow: 10px 10px 10px gray;
     }
+}
+
+.footer {
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.header {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.last--card {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 8vh;
+    margin-right: 1rem;
+}
+
+.first--card {
+    margin-top: 8vh;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
 }
