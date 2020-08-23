@@ -11,116 +11,23 @@
 <body>
     <!--Barre de navigation-->
     <header>
-        <nav class="header navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="index.html">Orinoco</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Produit <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Panier</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <h1 class="header">Orinoco</h1>
     </header>
 
-    <!--Liste des produits-->
-    <div class="card first--card p-3">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="images/vcam_1.jpg" class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Fujifilm X-T200</h5>
-                    <p class="card-text">Large APS-C CMOS image sensor.<br />
-                        Image parfait au bout du doigt.<br />
-                        Un savoir-faire colorimétrique légendaire.<br />
-                        Exprimez votre créativité avec des filtres avancés !</p>
-                        <a href="produit.html" class="btn btn-primary" role="button"
-                        aria-pressed="true">Détails</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card p-3 m-3">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="images/vcam_2.jpg" class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Sony a7S III</h5>
-                    <p class="card-text">Capteur 12.1 mégapixels dernière génération et nouveau processeur BIONZ
-                        XR.<br />
-                        Enregistrement vidéo professionnel jusqu'à 4K/120p.<br />
-                        Mise au point automatique hybride haute performance optimisée pour la caputre de photos ou de
-                        vidéos.</p>
-                        <a href="produit.html" class="btn btn-primary" role="button"
-                        aria-pressed="true">Détails</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card p-3 m-3">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="images/vcam_3.jpg" class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Nikon D6</h5>
-                    <p class="card-text">CAPTEUR FX 20,8MP.<br />
-                        Jusqu'a 14 VPS.<br />
-                        AUTOFOCUS 105 POINTS.<br />
-                        De 100 à 102 400 ISO.</p>
-                        <a href="produit.html" class="btn btn-primary" role="button"
-                        aria-pressed="true">Détails</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card p-3 m-3">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="images/vcam_4.jpg" class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Olympus E-M10 MARK IV</h5>
-                    <p class="card-text"> Léger, mobile, facile à utiliser.<br />
-                        Pour les selfies : écran tactile rabattable.<br />
-                        Une qualité d'image qui donne envie. </p>
-                        <a href="produit.html" class="btn btn-primary" role="button"
-                        aria-pressed="true">Détails</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card last--card p-3">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="images/vcam_5.jpg" class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Canon 77D</h5>
-                    <p class="card-text">Capteur CMOS de 24,2 millions de pixels.<br />
-                        DIGIC 7 processeur.<br />
-                        45 collimateurs AF.</p>
-                    <a href="produit.html" class="btn btn-primary" role="button"
-                        aria-pressed="true">Détails</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!--Tableau des produits-->
+    <table class="table">
+        <thead class="table-dark">
+          <tr class="bg-primary">
+            <th scope="col">ID</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Description</th>
+            <th scope="col">URL de l'image</th>
+          </tr>
+        </thead>
+        <tbody id="listedesproduits">
+        </tbody>
+      </table>
 
     <!--Footer-->
     <footer>

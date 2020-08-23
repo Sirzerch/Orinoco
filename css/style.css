@@ -10820,24 +10820,8 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .header {
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  right: 0;
-  left: 0;
-}
-
-.last--card {
-  margin-top: 1rem;
-  margin-left: 1rem;
-  margin-bottom: 8vh;
-  margin-right: 1rem;
-}
-
-.first--card {
-  margin-top: 8vh;
-  margin-left: 1rem;
-  margin-bottom: 1rem;
-  margin-right: 1rem;
+  display: block;
+  text-align: center;
+  color: #5c3710;
 }
 /*# sourceMappingURL=style.css.map */
