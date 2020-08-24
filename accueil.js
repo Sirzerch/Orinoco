@@ -25,7 +25,7 @@ cameras.forEach(cam =>
               <td class="align-middle">${cam.nom}</td>
               <td class="align-middle">${cam.prix}€</td>
               <td class="align-middle">${cam.description}</td>
-              <td><img src=${cam.urlImg}</td>
+              <td><img src=${cam.urlImg} class="img-fluid img-thumbnail w-25"></td>
               <td class="align-middle"><button class="btn btn-primary">Détails</button></td>
             </tr>
             `
