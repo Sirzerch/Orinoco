@@ -1,15 +1,21 @@
 $primary: #5c3710;
 
+.page-content {
+    display: none;
+}
+
+.page-content.active {
+    display: block;
+}
+
+.active a {
+    background: $primary;
+    color: white;
+    border-radius: 5px;
+}
+
 @import "bootstrap/bootstrap";
 
-.card {
-    transition: 400ms;
-
-    &:hover {
-        transform: scale(1.01);
-        box-shadow: 10px 10px 10px gray;
-    }
-}
 
 .footer {
     position: fixed;

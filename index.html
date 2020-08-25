@@ -13,23 +13,51 @@
     <header>
         <h1 class="header">Orinoco</h1>
     </header>
-
-    <!--Tableau des produits-->
-    <table class="table table-image">
-        <thead class="table-dark">
-            <tr class="bg-primary">
-                <th class="text-center" scope="col">ID</th>
-                <th class="text-center" scope="col">Nom</th>
-                <th class="text-center" scope="col">Prix</th>
-                <th class="text-center" scope="col">Description</th>
-                <th class="text-center" scope="col">Image</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody id="listedesproduits">
-        </tbody>
-    </table>
-
+    <!--Pages de Orinoco-->
+    <div>
+        <div class="pages">
+            <ul class="nav justify-content-center">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#accueil">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#produits">Produits</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#panier">Panier</a>
+                </li>
+            </ul>
+        </div>
+    
+        <div class="pages-content">
+            <!-- Page Accueil-->
+            <div class="page-content active" id="accueil">
+                <table class="table table-image">
+                    <thead class="table-dark">
+                        <tr class="bg-primary">
+                            <th class="text-center" scope="col">ID</th>
+                            <th class="text-center" scope="col">Nom</th>
+                            <th class="text-center" scope="col">Prix</th>
+                            <th class="text-center" scope="col">Description</th>
+                            <th class="text-center" scope="col">Image</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="listedesproduits">
+                    </tbody>
+                </table>
+            </div>
+            <!--Page Produit-->
+            <div class="page-content" id="produits">
+                <p>non</p>
+            </div>
+            <!--Page Panier-->
+            <div class="page-content" id="panier">
+                <p>oui</p>
+            </div>
+        </div>
+    </div>
+    
     <!--Footer-->
     <footer>
         <nav class="footer navbar navbar-dark bg-primary">
@@ -38,6 +66,7 @@
         </nav>
     </footer>
 
+    <script src="pages.js"></script>
     <script src="accueil.js"></script>
 </body>
 
