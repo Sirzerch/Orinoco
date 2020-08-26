@@ -2,6 +2,7 @@ let pages = document.querySelectorAll('.pages a')
 
 for(let i = 0; i < pages.length; i++) {
     pages[i].addEventListener('click', function(e){
+        e.preventDefault()
         let div = this.parentNode.parentNode.parentNode.parentNode
         let li = this.parentNode
 
