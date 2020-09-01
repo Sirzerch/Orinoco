@@ -1,20 +1,19 @@
 $primary: #5c3710;
 
-.page-content {
+#page0, #page1, #page2 {
     display: none;
+
+    &.active {
+        display: block;
+    }
 }
 
-.page-content.active {
-    display: block;
-}
-
-.active a {
+a.active {
     background: $primary;
     color: white;
 }
 
 @import "bootstrap/bootstrap";
-
 
 .footer {
     position: fixed;

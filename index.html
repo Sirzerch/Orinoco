@@ -14,49 +14,48 @@
         <h1 class="header">Orinoco</h1>
     </header>
     <!--Pages de Orinoco-->
-    <div>
-        <div class="pages">
-            <ul class="nav justify-content-center">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#accueil">Accueil</a>
+    <div id="pages">
+        <div class="pages-titles">
+            <ul class="nav justify-content-center nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link active" data-pages="0" href="#">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#produits">Produits</a>
+                    <a class="nav-link" data-pages="1" href="#">Produits</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#panier">Panier</a>
+                    <a class="nav-link" data-pages="2" href="#">Panier</a>
                 </li>
             </ul>
         </div>
-    
-        <div class="pages-content">
-            <!-- Page Accueil-->
-            <div class="page-content active" id="accueil">
-                <table class="table">
-                    <thead class="table-dark">
-                        <tr class="bg-primary">
-                            <th class="text-center" scope="col">Image</th>
-                            <th class="text-center" scope="col">Nom</th>
-                            <th class="text-center" scope="col">Prix</th>
-                            <th class="text-center" scope="col">Description</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody id="listedesproduits">
-                    </tbody>
-                </table>
-            </div>
-            <!--Page Produit-->
-            <div class="page-content" id="produits">
-                <p>non</p>
-            </div>
-            <!--Page Panier-->
-            <div class="page-content" id="panier">
-                <p>oui</p>
-            </div>
+
+
+        <!-- Page Accueil-->
+        <div class="active" id="page0">
+            <table class="table">
+                <thead class="table-dark">
+                    <tr class="bg-primary">
+                        <th class="text-center" scope="col">Image</th>
+                        <th class="text-center" scope="col">Nom</th>
+                        <th class="text-center" scope="col">Prix</th>
+                        <th class="text-center" scope="col">Description</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody id="listedesproduits">
+                </tbody>
+            </table>
+        </div>
+        <!--Page Produit-->
+        <div id="page1">
+            <p>non</p>
+        </div>
+        <!--Page Panier-->
+        <div id="page2">
+            <p>oui</p>
         </div>
     </div>
-    
+
     <!--Footer-->
     <footer>
         <nav class="footer navbar navbar-dark bg-primary">

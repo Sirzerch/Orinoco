@@ -1,12 +1,12 @@
-.page-content {
+#page0, #page1, #page2 {
   display: none;
 }
 
-.page-content.active {
+#page0.active, #page1.active, #page2.active {
   display: block;
 }
 
-.active a {
+a.active {
   background: #5c3710;
   color: white;
 }

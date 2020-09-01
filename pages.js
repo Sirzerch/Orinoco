@@ -1,17 +1,12 @@
-let pages = document.querySelectorAll('.pages a')
+let pages = document.querySelectorAll('#pages .pages-titles a')
 
-for(let i = 0; i < pages.length; i++) {
-    pages[i].addEventListener('click', function(e){
-        e.preventDefault()
-        let div = this.parentNode.parentNode.parentNode.parentNode
-        let li = this.parentNode
-
-        if (li.classList.contains('active')) {
-            return false
-        }
-        div.querySelector('.pages .active').classList.remove('active')
-        li.classList.add('active')
-        div.querySelector('.page-content.active').classList.remove('active')
-        div.querySelector(this.getAttribute('href')).classList.add('active')
+for(let page of pages) {
+    page.addEventListener('click', function(){
+        let num = this.getAttribute('data-pages')
+        
+        document.querySelector('#pages div.active').classList.remove('active')
+        document.querySelector('#page' + num).classList.add('active')
+        document.querySelector('#pages .pages-titles a.active').classList.remove('active')
+        this.classList.add('active')
     })
 }
