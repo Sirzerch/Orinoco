@@ -10,3 +10,12 @@ for(let page of pages) {
         this.classList.add('active')
     })
 }
+
+
+
+//Au click du bouton détails, l'onglet produits ce déclenche.
+//Au click du bouton détails, une variable stock l'id du produit souhaité, en récupérant le data-button.
+//L'onglet produits génére la page correspondant à l'id du produit en question.
+
+//Pour manipuler les éléments de mon site, l'utilisation data-* vas être essentiel.
+//J'applique la même méthodes que pour la gestion des pages (pages.js) sur le reste du site Orinoco.

@@ -3,6 +3,9 @@ let url = "http://localhost:3000/api/cameras/"
 fetch(url).then(response =>
     response.json().then(data => {
         console.log(data)
+
+        let number = 1
+
         for (let cam of data) {
 
             let $ = function (selector) {
@@ -13,7 +16,6 @@ fetch(url).then(response =>
             $('#listedesproduits').appendChild(tr)
             tr.className = 'text-center'
             tr.setAttribute('id', 'tr')
-
 
             let td1 = document.createElement('td')
             let td2 = document.createElement('td')
@@ -45,26 +47,36 @@ fetch(url).then(response =>
             a.setAttribute('role', 'button')
             a.setAttribute('aria-pressed', 'true')
             a.innerHTML = 'Détails'
+            a.setAttribute('data-button', `${cam._id}`)
 
             img.src = `${cam.imageUrl}`
-            
+
             td2.innerHTML = `${cam.name}`
 
             td3.innerHTML = `${cam.price}`
 
             td4.innerHTML = `${cam.description}`
 
-            a.setAttribute('href', `${cam._id}`)
+            a.setAttribute('href', `#`)
+        }
+
+        let getIds = document.querySelectorAll('#listedesproduits #tr a')
+
+        for (let getId of getIds) {
+            getId.addEventListener('click', function () {
+                let num = this.getAttribute('data-button')
+
+                localStorage.setItem("ids", JSON.stringify(num));
+
+                const getItem = JSON.parse(localStorage.getItem("ids"));
+
+                console.log(getItem)
+
+                const page = document.getElementsByTagName('a')
+                const pageProduit = page[1]
+                pageProduit.click()
+
+            })
         }
     })
 ).catch((err) => console.log("Erreur" + err));
-
-
-
-
-
-
-
-
-
-
