@@ -11,6 +11,7 @@ $primary: #5c3710;
 a.active {
     background: $primary;
     color: white;
+    transition: all 500ms;
 }
 
 @import "bootstrap/bootstrap";
@@ -27,5 +28,5 @@ a.active {
     display: block;
     text-align: center;
     color: $primary;
-    margin: 20px 0 40px 0;
+    margin: 30px 0 50px 0;
 }
