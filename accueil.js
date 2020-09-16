@@ -16,7 +16,7 @@ fetch(urlAccueil).then(response =>
             let tr = document.createElement('tr')
             $('#listedesproduits').appendChild(tr)
             tr.className = 'text-center'
-            tr.setAttribute('id', 'tr')
+            tr.setAttribute('data-tr', 'tr')
 
             let td1 = document.createElement('td')
             let td2 = document.createElement('td')
@@ -25,11 +25,11 @@ fetch(urlAccueil).then(response =>
             let td5 = document.createElement('td')
             tr.append(td1, td2, td3, td4, td5)
 
-            td1.setAttribute('id', 'td' + 1)
-            td2.setAttribute('id', 'td' + 2)
-            td3.setAttribute('id', 'td' + 3)
-            td4.setAttribute('id', 'td' + 4)
-            td5.setAttribute('id', 'td' + 5)
+            td1.setAttribute('data-td', 'td' + 1)
+            td2.setAttribute('data-td', 'td' + 2)
+            td3.setAttribute('data-td', 'td' + 3)
+            td4.setAttribute('data-td', 'td' + 4)
+            td5.setAttribute('data-td', 'td' + 5)
 
             td1.className = 'w-25'
             td2.className = 'align-middle'
