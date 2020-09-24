@@ -13,7 +13,3 @@ for(let page of pages) {
 
 
 
-//L'onglet produits génére la page correspondant à l'id du produit en question.
-
-//Pour manipuler les éléments de mon site, l'utilisation data-* vas être essentiel.
-//J'applique la même méthodes que pour la gestion des pages (pages.js) sur le reste du site Orinoco.
