@@ -8,7 +8,7 @@ let url = "http://localhost:3000/api/cameras/"
 
 //Création <tr></tr>
 function createTr(className, name, value) {
-    tr = document.createElement('tr')
+    let tr = document.createElement('tr')
     tr.className = className
     tr.setAttribute(name, value)
     return tr
