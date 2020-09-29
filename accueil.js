@@ -5,7 +5,6 @@ export default class createElement {
         this.setAttributeValue = value
         this.src = src
         this.innerHTML = text
-
     }
 
     createTr() {
