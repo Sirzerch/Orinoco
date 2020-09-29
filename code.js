@@ -24,14 +24,12 @@ function setAccueil(data) {
         tr = tr.createTr()
         list.appendChild(tr)
 
-
         for (let item of items) {
             tr.appendChild(item)
         }
 
         let img = new createElement('img-fluid img-thumbnail', null, null, null, `${cam.imageUrl}`)
         td1.appendChild(img.createImg())
-
 
         let a = new createElement('btn btn-primary', 'data-button', `${cam._id}`, 'Détails')
         td5.appendChild(a.createLink())
