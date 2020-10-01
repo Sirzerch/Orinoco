@@ -40,7 +40,6 @@ export default class createElement {
         a.href = this.href
         return a
     }
-
     createDiv() {
         let div = document.createElement('div')
         div.className = this.className
@@ -64,6 +63,7 @@ export default class createElement {
         let p = document.createElement('p')
         p.className = this.className
         p.innerHTML = this.innerHTML
+        p.setAttribute(this.firstSetAttributeName, this.firstSetAttributeValue)
         return p
     }
 
