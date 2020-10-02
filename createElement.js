@@ -1,13 +1,15 @@
 export default class createElement {
-    constructor(className, firstName, firstValue, text, src, alt, val, href) {
+    constructor(className, firstName, firstValue, secondName, secondValue, text, src, alt, val, href) {
         this.className = className
         this.firstSetAttributeName = firstName
         this.firstSetAttributeValue = firstValue
-        this.src = src
+        this.secondSetAttributeName = secondName
+        this.secondSetAttributeValue = secondValue
         this.innerHTML = text
+        this.src = src
         this.alt = alt
-        this.href = href
         this.value = val
+        this.href = href
     }
 
     createTr() {
@@ -32,6 +34,14 @@ export default class createElement {
         return img
     }
     createLink() {
+        let a = document.createElement('a')
+        a.className = this.className
+        a.setAttribute(this.firstSetAttributeName, this.firstSetAttributeValue)
+        a.innerHTML = this.innerHTML
+        a.href = this.href
+        return a
+    }
+    createLink2() {
         let a = document.createElement('a')
         a.className = this.className
         a.setAttribute(this.firstSetAttributeName, this.firstSetAttributeValue)
