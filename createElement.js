@@ -1,3 +1,6 @@
+//Création des éléments HTML
+
+
 export default class createElement {
     constructor(className, firstName, firstValue, secondName, secondValue, text, src, alt, val, href) {
         this.className = className
@@ -99,4 +102,6 @@ export default class createElement {
         return select
     }
 }
+
+
 

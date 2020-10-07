@@ -1,4 +1,5 @@
 import createElement from './createElement.js'
+import getApi from './getApi.js'
 
 let $ = function (selector) {
     return document.querySelector(selector);
@@ -12,7 +13,7 @@ let url = "http://localhost:3000/api/cameras/"
 function setAccueil(data) {
     for (let cam of data) {
         let items = []
-        let td1 = new createElement('w-25', 'data-tr', 'td', null, null,null).createTd()
+        let td1 = new createElement('w-25', 'data-tr', 'td', null, null, null).createTd()
         let td2 = new createElement('align-middle', 'data-td', 'td', null, null, `${cam.name}`).createTd()
         let td3 = new createElement('align-middle', 'data-td', 'td', null, null, `${cam.price}£`).createTd()
         let td4 = new createElement('align-middle', 'data-td', 'td', null, null, `${cam.description}`).createTd()
@@ -37,7 +38,7 @@ function setAccueil(data) {
 
 }
 
-//Appel page Accueil
+// Appel page Accueil
 async function getAccueil() {
     let response = await fetch(url)
     let data = await response.json()
@@ -47,7 +48,7 @@ async function getAccueil() {
 
 //Page Produit
 function setProduit(data) {
-    //Element crée
+    //Elements crées
     let div1 = new createElement('card mt-3 mr-4 ml-4', 'style', 'max-width: 5000px;').createDiv()
     let div2 = new createElement('row no-gutters').createDiv2()
     let div3 = new createElement('col-md-4').createDiv2()
@@ -57,7 +58,7 @@ function setProduit(data) {
     let h5 = new createElement('card-title', null, null, null, null, `${data.name}`).createTitle()
     let p1 = new createElement('card-text', null, null, null, null, `${data.price}£`).createParagraphe()
     let p2 = new createElement('card-text', null, null, null, null, `${data.description}`).createParagraphe()
-    let label = new createElement('card-text', 'for', 'lentilles', 'Lentilles : ', 'margin-right: 10px').createLabel()
+    let label = new createElement('card-text', 'for', 'lentilles',null, null, 'Lentilles : ', 'margin-right: 10px').createLabel()
     let select = new createElement('lentilles', 'id', 'lentilles').createSelect()
     let option1 = new createElement(null, null, null, null, null, `${data.lenses[0]}`, null, null, `${data.lenses}`).createOption()
     let option2 = new createElement(null, null, null, null, null,`${data.lenses[1]}`, null, null, `${data.lenses}`).createOption()
@@ -106,8 +107,8 @@ function getProduit() {
 
                 let response = await fetch(url)
                 let data = await response.json()
-                let item = await setProduit(data)
-                return item
+                let pages = await setProduit(data)
+                return pages
             })
         }
     }).catch(err => console.log('Erreur' + err))
