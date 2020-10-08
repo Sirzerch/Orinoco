@@ -1,4 +1,5 @@
 import createElement from './createElement.js'
+import getApi from './getApi.js'
 
 let $ = function (selector) {
     return document.querySelector(selector);
@@ -6,20 +7,20 @@ let $ = function (selector) {
 
 //API caméra
 let url = "http://localhost:3000/api/cameras/"
-//
 
+
+//Page Accueil
 function setAccueil(data) {
     for (let cam of data) {
         let items = []
-        let td1 = new createElement('w-25', 'data-tr', 'td', null).createTd()
-        let td2 = new createElement('align-middle', 'data-td', 'td', `${cam.name}`).createTd()
-        let td3 = new createElement('align-middle', 'data-td', 'td', `${cam.price}£`).createTd()
-        let td4 = new createElement('align-middle', 'data-td', 'td', `${cam.description}`).createTd()
-        let td5 = new createElement('align-middle', 'data-td', 'td', null).createTd()
+        let td1 = new createElement('w-25', 'data-tr', 'td', null, null, null).createTd()
+        let td2 = new createElement('align-middle', 'data-td', 'td', null, null, `${cam.name}`).createTd()
+        let td3 = new createElement('align-middle', 'data-td', 'td', null, null, `${cam.price}£`).createTd()
+        let td4 = new createElement('align-middle', 'data-td', 'td', null, null, `${cam.description}`).createTd()
+        let td5 = new createElement('align-middle', 'data-td', 'td', null, null, null).createTd()
         items.push(td1, td2, td3, td4, td5)
-        console.log(items)
 
-        let tr = new createElement('text-center', 'data-tr', 'tr', null) 
+        let tr = new createElement('text-center', 'data-tr', 'tr')
         let list = $('#listedesproduits')
         tr = tr.createTr()
         list.appendChild(tr)
@@ -28,23 +29,21 @@ function setAccueil(data) {
             tr.appendChild(item)
         }
 
-        let img = new createElement('img-fluid img-thumbnail', null, null, null, `${cam.imageUrl}`)
+        let img = new createElement('img-fluid img-thumbnail', null, null, null, null, null,`${cam.imageUrl}`, 'Appareil photo')
         td1.appendChild(img.createImg())
 
-
-        let a = new createElement('btn btn-primary', 'data-button', `${cam._id}`, 'Détails')
+        let a = new createElement('btn btn-primary', 'data-button', `${cam._id}`, null, null, 'Détails', null, null, null, '#')
         td5.appendChild(a.createLink())
-        
     }
 
 }
 
-//Appel page Accueil
+// Appel page Accueil
 async function getAccueil() {
     let response = await fetch(url)
     let data = await response.json()
-    let pages = await setAccueil(data)
-    return pages
+    let page = await setAccueil(data)
+    return page
 }
 
 //Page Produit
