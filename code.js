@@ -24,7 +24,6 @@ function setAccueil(data) {
         tr = tr.createTr()
         list.appendChild(tr)
 
-
         for (let item of items) {
             tr.appendChild(item)
         }

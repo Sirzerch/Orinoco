@@ -10,12 +10,12 @@
 
 <body>
     <!--Barre de navigation-->
-    <header>
+    <!-- <header>
         <h1 class="header">Orinoco</h1>
-    </header>
+    </header> -->
     <!--Pages de Orinoco-->
     <div id="pages">
-        <div class="pages-titles">
+        <!-- <div class="pages-titles">
             <ul class="nav justify-content-center nav-pills">
                 <li class="nav-item">
                     <a class="nav-link active" data-pages="0" href="#">Accueil</a>
@@ -27,13 +27,39 @@
                     <a class="nav-link" data-pages="2" href="#">Panier</a>
                 </li>
             </ul>
-        </div>
+        </div> -->
 
+        <header class="header">
+            <h1 class="header__title">
+                <div class="icon">
+                    <div class="icon__circle"></div>
+                    <div class="icon__flash"></div>
+                </div>
+                <p>rinoco</p>
+            </h1>
+            <nav class="header__nav">
+                <ul>
+                    <li>
+                        <a class="nav-link active" data-pages="0" href="#"><span>01.</span>Accueil</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" data-pages="1" href="#"><span>02.</span>Produits</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" data-pages="2" href="#"><span>03.</span>Panier</a>
+                    </li>
+                </ul>
+                <!-- <div class="buttons">
+                        <a href="#">Contact</a>
+                    </div> -->
+            </nav>
+            <div class="icon-bar"></div>
+        </header>
 
         <!-- Page Accueil-->
         <div class="active" id="page0">
             <table class="table mt-3 mb-2">
-                <thead class="table-dark">
+                <!-- <thead class="table-dark">
                     <tr class="bg-primary">
                         <th class="text-center" style="font-size: 1rem;" scope="col">Image</th>
                         <th class="text-center" style="font-size: 1rem;" scope="col">Nom</th>
@@ -41,7 +67,7 @@
                         <th class="text-center" style="font-size: 1rem;" scope="col">Description</th>
                         <th scope="col"></th>
                     </tr>
-                </thead>
+                </thead> -->
                 <tbody id="listedesproduits">
                 </tbody>
             </table>
@@ -49,8 +75,8 @@
         <!--Page Produit-->
         <div id="page1">
             <nav class="navbar mt-3 mb-2 navbar-dark bg-primary">
-                <span class="navbar-brand mb-0" style="font-size: 1rem;">Détails</span>
-              </nav>
+                <span class="navbar-brand mb-0" style="font-size: 1rem;">DETAILS</span>
+            </nav>
             <div id="produit">
             </div>
         </div>
@@ -71,15 +97,6 @@
             </table>
         </div>
     </div>
-
-    <!--Footer-->
-    <footer>
-        <nav class="footer navbar navbar-dark bg-primary">
-            <a class="navbar-brand" style="font-size: 1rem;">Mentions légales</a>
-            <a class="navbar-brand" style="font-size: 1rem;">Contactez-nous</a>
-        </nav>
-    </footer>
-
 
     <script src="pages.js"></script>
     <script type="module" src="code.js"></script>

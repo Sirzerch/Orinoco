@@ -92,32 +92,32 @@ fetch(urlAccueil).then(response =>
                             return document.querySelector(selector);
                         };
 
-                        // let firstDiv = document.createElement('div')
-                        // $('#produit').append(firstDiv)
-                        // firstDiv.className = "card mt-3 mr-4 ml-4"
-                        // firstDiv.setAttribute('style', 'max-width: 5000px;')
+                        let firstDiv = document.createElement('div')
+                        $('#produit').append(firstDiv)
+                        firstDiv.className = "card mt-3 mr-4 ml-4"
+                        firstDiv.setAttribute('style', 'max-width: 5000px;')
 
-                        // let secondDiv = document.createElement('div')
-                        // firstDiv.append(secondDiv)
-                        // secondDiv.className = "row no-gutters"
+                        let secondDiv = document.createElement('div')
+                        firstDiv.append(secondDiv)
+                        secondDiv.className = "row no-gutters"
 
-                        // let thirdDiv = document.createElement('div')
-                        // secondDiv.append(thirdDiv)
-                        // thirdDiv.className = "col-md-4"
+                        let thirdDiv = document.createElement('div')
+                        secondDiv.append(thirdDiv)
+                        thirdDiv.className = "col-md-4"
 
-                        // let img = document.createElement('img')
-                        // thirdDiv.append(img)
-                        // img.src = `${data.imageUrl}`
-                        // img.className = "card-img"
-                        // img.alt = "Appareil photo"
+                        let img = document.createElement('img')
+                        thirdDiv.append(img)
+                        img.src = `${data.imageUrl}`
+                        img.className = "card-img"
+                        img.alt = "Appareil photo"
 
-                        // let thirdDivBis = document.createElement('div')
-                        // secondDiv.append(thirdDivBis)
-                        // thirdDivBis.className = 'col-md-8'
+                        let thirdDivBis = document.createElement('div')
+                        secondDiv.append(thirdDivBis)
+                        thirdDivBis.className = 'col-md-8'
 
-                        // let fourthDiv = document.createElement('div')
-                        // thirdDivBis.append(fourthDiv)
-                        // fourthDiv.className = 'card-body'
+                        let fourthDiv = document.createElement('div')
+                        thirdDivBis.append(fourthDiv)
+                        fourthDiv.className = 'card-body'
 
                         let cardTitle = document.createElement('h5')
                         fourthDiv.append(cardTitle)
