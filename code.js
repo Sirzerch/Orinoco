@@ -49,21 +49,22 @@ async function getAccueil() {
 //Page Produit
 function setProduit(data) {
     //Elements crées
-    let div1 = new createElement('card mt-3 mr-4 ml-4', 'style', 'max-width: 5000px;').createDiv()
+    let div1 = new createElement('card mt-3 mr-4 ml-4').createDiv()
     let div2 = new createElement('row no-gutters').createDiv2()
     let div3 = new createElement('col-md-4').createDiv2()
     let img = new createElement('card-img', null, null, null, null, null, `${data.imageUrl}`, 'Appareil photo').createImg()
     let div3Bis = new createElement('col-md-8').createDiv2()
     let div4 = new createElement('card-body').createDiv2()
+    let div5 = new createElement('card-body--title').createDiv2()
     let h5 = new createElement('card-title', null, null, null, null, `${data.name}`).createTitle()
     let p1 = new createElement('card-text', null, null, null, null, `${data.price}£`).createParagraphe()
     let p2 = new createElement('card-text', null, null, null, null, `${data.description}`).createParagraphe()
-    let label = new createElement('card-text', 'for', 'lentilles',null, null, 'Lentilles : ', 'margin-right: 10px').createLabel()
+    let label = new createElement('card-text', 'for', 'lentilles',null, null, 'Lentilles : ').createLabel()
     let select = new createElement('lentilles', 'id', 'lentilles').createSelect()
     let option1 = new createElement(null, null, null, null, null, `${data.lenses[0]}`, null, null, `${data.lenses}`).createOption()
     let option2 = new createElement(null, null, null, null, null,`${data.lenses[1]}`, null, null, `${data.lenses}`).createOption()
     let option3 = new createElement(null, null, null, null, null, `${data.lenses[2]}`, null, null, `${data.lenses}`).createOption()
-    let a = new createElement('btn btn-warning', 'style', 'position: absolute; top: 15px; right: 15px;', 'data-panier', `${data._id}`, 'Ajouter au panier +', null, null, null, '#').createLink2()
+    let a = new createElement('btn btn-warning', null, null, 'data-panier', `${data._id}`, 'Ajouter au panier +', null, null, null, '#').createLink2()
 
     //Parents
     $('#produit').append(div1)
@@ -72,7 +73,9 @@ function setProduit(data) {
     div3.append(img)
     div2.append(div3Bis)
     div3Bis.append(div4)
-    div4.append(h5)
+    div4.append(div5)
+    div5.append(h5)
+    div5.append(a)
     div4.append(p1)
     div4.append(p2)
     div4.append(label)
@@ -80,7 +83,6 @@ function setProduit(data) {
     select.append(option1)
     select.append(option2)
     select.append(option3)
-    div4.append(a)
 }
 
 //Appel page Produit

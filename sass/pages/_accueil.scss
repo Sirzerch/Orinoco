@@ -1,0 +1,39 @@
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+    background: #5c3710;
+    box-shadow: 0px 0px 10px 2px;
+    border-top: 20px solid white;
+    border-bottom: 120px solid white;
+    border-right: 20px solid white;
+    border-left: 20px solid white;
+
+    & td {
+        padding: 0.75rem;
+        border-top: 1px solid #dee2e6;
+        color: $blanc;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.img-thumbnail {
+    padding: 0.25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    max-width: 100%;
+    height: auto;
+}
+
+.align-middle {
+    vertical-align: middle;
+}

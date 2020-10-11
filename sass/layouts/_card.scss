@@ -1,0 +1,37 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    background: $primary;
+    border-top: 20px solid white;
+    border-bottom: 120px solid white;
+    border-right: 20px solid white;
+    border-left: 20px solid white;
+    box-shadow: 0px 0px 10px 2px;
+
+    &-body {
+        min-height: 1px;
+        padding: 1.25rem;
+
+        &--title {
+            display: flex;
+            justify-content: space-between;
+        }
+
+    }
+
+    &-title {
+        margin-bottom: .75rem;
+        margin-top: 0;
+        font-size: 1.25rem;
+    }
+
+    &-img {
+        width: 100%;
+    }
+}
