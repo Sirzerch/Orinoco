@@ -1,3 +1,5 @@
+//Code non utilisé
+
 export default class getApi {
     constructor(http) {
         this.http = http

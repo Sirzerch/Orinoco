@@ -90,7 +90,7 @@ function getProduit() {
     getAccueil().then(function () {
         let links = document.querySelectorAll('#listedesproduits a')
 
-        let p = new createElement('text-muted d-flex align-items-center justify-content-center', 'style', 'height: 60vh',  null, null, "Aucun produit n'a été sélectionné").createParagraphe()
+        let p = new createElement('text-center', null, null, null, null, "Aucun produit n'a été sélectionné").createParagraphe()
         $('#produit').append(p)
 
         for (let link of links) {
