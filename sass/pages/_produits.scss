@@ -1,0 +1,27 @@
+.row {
+    display: flex;
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.col {
+    padding-right: 0;
+    padding-left: 0;
+
+    &-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+
+    &-md-8 {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+    }
+}
+
+h5 {
+    margin-bottom: .75rem;
+}

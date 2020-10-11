@@ -1,0 +1,26 @@
+.btn {
+    transition: none;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    text-decoration: none;
+
+    &-warning {
+        color: #212529;
+        background-color: #ffc107;
+        border-color: #ffc107;
+    }
+    
+    &-primary {
+        color: #fff;
+        border: 1px solid $warning;
+    
+        &:hover {
+            background-color: $warning;
+        }
+    }
+
+    &:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+    
+}

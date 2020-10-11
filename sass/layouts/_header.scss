@@ -1,0 +1,68 @@
+.header {
+    display: flex;
+    border: 2px solid $primary;
+    position: fixed;
+    top: 0vh;
+    left: 3vh;
+    right: 3vh;
+    background-color: #e6e6e6;
+
+    &__nav {
+        display: flex;
+        width: 999vh;
+        justify-content: space-between;
+        border-left: 2px solid $primary;
+
+        & .nav-link {
+            display: block;
+            padding: .5rem 1rem;
+        }
+        
+        & ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            width: 40vh;
+            justify-content: space-evenly;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        & span {
+            font-size: 14px;
+            display: block;
+        }
+
+        & .buttons {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        & a {
+            text-decoration: none;
+            color: $primary;
+            margin-right: 20px;
+    
+            &.active {
+                background: $primary;
+                color: $blanc;
+                transition: all 500ms;
+                border-radius: .25rem;
+            }
+        }
+    }
+
+    &__title {
+        color: $primary;
+        ;
+        display: flex;
+        margin-right: 20px;
+        font-size: 45px;
+        margin: 20px 20px 9px 20px;
+
+        & p {
+            margin: 0;
+        }
+    }
+}

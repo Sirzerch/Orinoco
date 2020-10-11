@@ -1,0 +1,9 @@
+#page0,
+#page1,
+#page2 {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
