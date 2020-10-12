@@ -1,5 +1,5 @@
-import createElement from './createElement.js'
-import getApi from './getApi.js'
+import createElement from '../utils/createElement.js'
+import getApi from '../utils/getApi.js'
 
 let $ = function (selector) {
     return document.querySelector(selector);
