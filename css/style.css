@@ -1,3 +1,21 @@
+@-webkit-keyframes progress-pages {
+  0%, 20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes progress-pages {
+  0%, 20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 body {
   padding-top: 90px;
   background-color: #e6e6e6;
@@ -106,7 +124,6 @@ img {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: .25rem;
   background: #5c3710;
   border-top: 20px solid white;
   border-bottom: 120px solid white;
@@ -145,11 +162,13 @@ img {
   display: -ms-flexbox;
   display: flex;
   border: 2px solid #5c3710;
+  border-radius: .25rem;
   position: fixed;
   top: 0vh;
   left: 3vh;
   right: 3vh;
   background-color: #e6e6e6;
+  z-index: 9999;
 }
 
 .header__nav {
@@ -227,12 +246,18 @@ img {
   margin: 0;
 }
 
+#listedesproduits {
+  background: #5c3710;
+  opacity: 0;
+  -webkit-animation: progress-pages 2500ms forwards;
+          animation: progress-pages 2500ms forwards;
+}
+
 .table {
   width: 100%;
   margin-bottom: 1rem;
   color: #212529;
   border-collapse: collapse;
-  background: #5c3710;
   -webkit-box-shadow: 0px 0px 10px 2px;
           box-shadow: 0px 0px 10px 2px;
   border-top: 20px solid white;

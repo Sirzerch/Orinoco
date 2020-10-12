@@ -1,11 +1,13 @@
 .header {
     display: flex;
     border: 2px solid $primary;
+    border-radius: .25rem;
     position: fixed;
     top: 0vh;
     left: 3vh;
     right: 3vh;
     background-color: #e6e6e6;
+    z-index: 9999;
 
     &__nav {
         display: flex;
