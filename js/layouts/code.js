@@ -49,7 +49,7 @@ async function getAccueil() {
 //Page Produit
 function setProduit(data) {
     //Elements crées
-    let div1 = new createElement('card mt-3 mr-4 ml-4').createDiv()
+    let div1 = new createElement('card mt-3 mr-4 ml-4').createDiv2()
     let div2 = new createElement('row no-gutters').createDiv2()
     let div3 = new createElement('col-md-4').createDiv2()
     let img = new createElement('card-img', null, null, null, null, null, `${data.imageUrl}`, 'Appareil photo').createImg()
