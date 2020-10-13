@@ -1,22 +1,22 @@
-@-webkit-keyframes progress-pages {
-  0%, 20% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes progress-pages {
-  0%, 20% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 @-webkit-keyframes fondu {
+  0%, 20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fondu {
+  0%, 20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes progress-pages {
   0% {
     top: -150rem;
   }
@@ -25,7 +25,7 @@
   }
 }
 
-@keyframes fondu {
+@keyframes progress-pages {
   0% {
     top: -150rem;
   }
@@ -137,18 +137,20 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  background: #5c3710;
   border-top: 20px solid white;
   border-bottom: 120px solid white;
   border-right: 20px solid white;
   border-left: 20px solid white;
   -webkit-box-shadow: 0px 0px 10px 2px;
           box-shadow: 0px 0px 10px 2px;
+  position: absolute;
+  left: 4.25rem;
+  right: 4.25rem;
+  -webkit-animation: progress-pages 1200ms ease-in-out;
+          animation: progress-pages 1200ms ease-in-out;
 }
 
 .card-body {
@@ -268,8 +270,8 @@ img {
 #listedesproduits {
   background: #5c3710;
   opacity: 0;
-  -webkit-animation: progress-pages 1000ms 1000ms forwards;
-          animation: progress-pages 1000ms 1000ms forwards;
+  -webkit-animation: fondu 1000ms 1000ms forwards;
+          animation: fondu 1000ms 1000ms forwards;
   border-collapse: collapse;
 }
 
@@ -284,8 +286,8 @@ img {
   position: absolute;
   left: 4.25rem;
   right: 4.25rem;
-  -webkit-animation: fondu 1200ms ease-in-out;
-          animation: fondu 1200ms ease-in-out;
+  -webkit-animation: progress-pages 1200ms ease-in-out;
+          animation: progress-pages 1200ms ease-in-out;
 }
 
 .table td {
@@ -313,6 +315,13 @@ img {
 
 .align-middle {
   vertical-align: middle;
+}
+
+#produit {
+  background: #5c3710;
+  opacity: 0;
+  -webkit-animation: fondu 1000ms 1000ms forwards;
+          animation: fondu 1000ms 1000ms forwards;
 }
 
 .row {
@@ -347,5 +356,19 @@ img {
 
 h5 {
   margin-bottom: .75rem;
+}
+
+.text-center--white {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 300px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=style.css.map */

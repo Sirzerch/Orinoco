@@ -49,7 +49,6 @@ async function getAccueil() {
 //Page Produit
 function setProduit(data) {
     //Elements crées
-    let div1 = new createElement('card mt-3 mr-4 ml-4').createDiv2()
     let div2 = new createElement('row no-gutters').createDiv2()
     let div3 = new createElement('col-md-4').createDiv2()
     let img = new createElement('card-img', null, null, null, null, null, `${data.imageUrl}`, 'Appareil photo').createImg()
@@ -67,8 +66,7 @@ function setProduit(data) {
     let a = new createElement('btn btn-warning', null, null, 'data-panier', `${data._id}`, 'Ajouter au panier +', null, null, null, '#').createLink2()
 
     //Parents
-    $('#produit').append(div1)
-    div1.append(div2)
+    $('#produit').append(div2)
     div2.append(div3)
     div3.append(img)
     div2.append(div3Bis)
@@ -90,7 +88,7 @@ function getProduit() {
     getAccueil().then(function () {
         let links = document.querySelectorAll('#listedesproduits a')
 
-        let p = new createElement('text-center', null, null, null, null, "Aucun produit n'a été sélectionné").createParagraphe()
+        let p = new createElement('text-center--white', null, null, null, null, "Aucun produit n'a été sélectionné").createParagraphe()
         $('#produit').append(p)
 
         for (let link of links) {
