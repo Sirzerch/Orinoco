@@ -16,10 +16,28 @@
   }
 }
 
+@-webkit-keyframes fondu {
+  0% {
+    top: -150rem;
+  }
+  100% {
+    top: 90px;
+  }
+}
+
+@keyframes fondu {
+  0% {
+    top: -150rem;
+  }
+  100% {
+    top: 90px;
+  }
+}
+
 body {
   padding-top: 90px;
   background-color: #e6e6e6;
-  margin: 0vh 7vh 7vh 7vh;
+  margin: 0vh 4.25rem 4.25rem 4.25rem;
 }
 
 img {
@@ -136,6 +154,7 @@ img {
 .card-body {
   min-height: 1px;
   padding: 1.25rem;
+  color: white;
 }
 
 .card-body--title {
@@ -165,8 +184,8 @@ img {
   border-radius: .25rem;
   position: fixed;
   top: 0vh;
-  left: 3vh;
-  right: 3vh;
+  left: 1.75rem;
+  right: 1.75rem;
   background-color: #e6e6e6;
   z-index: 9999;
 }
@@ -249,21 +268,24 @@ img {
 #listedesproduits {
   background: #5c3710;
   opacity: 0;
-  -webkit-animation: progress-pages 2500ms forwards;
-          animation: progress-pages 2500ms forwards;
+  -webkit-animation: progress-pages 1000ms 1000ms forwards;
+          animation: progress-pages 1000ms 1000ms forwards;
+  border-collapse: collapse;
 }
 
 .table {
-  width: 100%;
-  margin-bottom: 1rem;
   color: #212529;
-  border-collapse: collapse;
   -webkit-box-shadow: 0px 0px 10px 2px;
           box-shadow: 0px 0px 10px 2px;
   border-top: 20px solid white;
   border-bottom: 120px solid white;
   border-right: 20px solid white;
   border-left: 20px solid white;
+  position: absolute;
+  left: 4.25rem;
+  right: 4.25rem;
+  -webkit-animation: fondu 1200ms ease-in-out;
+          animation: fondu 1200ms ease-in-out;
 }
 
 .table td {
