@@ -2,20 +2,21 @@
 #listedesproduits {
     background: $primary;
     opacity: 0;
-    animation: progress-pages 2500ms forwards;
+    animation: progress-pages 1000ms 1000ms forwards;
+    border-collapse: collapse;
 }
 
 .table {
-    width: 100%;
-    margin-bottom: 1rem;
     color: #212529;
-    border-collapse: collapse;
-    // background: #5c3710;
     box-shadow: 0px 0px 10px 2px;
     border-top: 20px solid white;
     border-bottom: 120px solid white;
     border-right: 20px solid white;
     border-left: 20px solid white;
+    position: absolute;
+    left: 4.25rem;
+    right: 4.25rem;
+    animation: fondu 1200ms ease-in-out;
 
     & td {
         padding: 0.75rem;
