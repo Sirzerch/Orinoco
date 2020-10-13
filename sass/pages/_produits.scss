@@ -1,5 +1,9 @@
 //Page 1 (cf ./base/pages)
-
+#produit {
+    background: $primary;
+    opacity: 0;
+    animation: fondu 1000ms 1000ms forwards;
+}
 .row {
     display: flex;
 }
@@ -26,4 +30,12 @@
 
 h5 {
     margin-bottom: .75rem;
+}
+
+.text-center--white {
+    color: $blanc;
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    align-items: center;
 }

@@ -2,7 +2,7 @@
 #listedesproduits {
     background: $primary;
     opacity: 0;
-    animation: progress-pages 1000ms 1000ms forwards;
+    animation: fondu 1000ms 1000ms forwards;
     border-collapse: collapse;
 }
 
@@ -16,7 +16,7 @@
     position: absolute;
     left: 4.25rem;
     right: 4.25rem;
-    animation: fondu 1200ms ease-in-out;
+    animation: progress-pages 1200ms ease-in-out;
 
     & td {
         padding: 0.75rem;
