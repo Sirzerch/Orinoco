@@ -29,7 +29,7 @@ function setAccueil(data) {
             tr.appendChild(item)
         }
 
-        let img = new createElement('img-fluid img-thumbnail', null, null, null, null, null,`${cam.imageUrl}`, 'Appareil photo')
+        let img = new createElement('img-fluid img-thumbnail', null, null, null, null, null, `${cam.imageUrl}`, 'Appareil photo')
         td1.appendChild(img.createImg())
 
         let a = new createElement('btn btn-primary', 'data-button', `${cam._id}`, null, null, 'Détails', null, null, null, '#')
@@ -44,6 +44,7 @@ async function getAccueil() {
     let data = await response.json()
     let page = await setAccueil(data)
     return page
+
 }
 
 //Page Produit
@@ -58,10 +59,10 @@ function setProduit(data) {
     let h5 = new createElement('card-title', null, null, null, null, `${data.name}`).createTitle()
     let p1 = new createElement('card-text', null, null, null, null, `${data.price}£`).createParagraphe()
     let p2 = new createElement('card-text', null, null, null, null, `${data.description}`).createParagraphe()
-    let label = new createElement('card-text', 'for', 'lentilles',null, null, 'Lentilles : ').createLabel()
+    let label = new createElement('card-text', 'for', 'lentilles', null, null, 'Lentilles : ').createLabel()
     let select = new createElement('lentilles', 'id', 'lentilles').createSelect()
     let option1 = new createElement(null, null, null, null, null, `${data.lenses[0]}`, null, null, `${data.lenses}`).createOption()
-    let option2 = new createElement(null, null, null, null, null,`${data.lenses[1]}`, null, null, `${data.lenses}`).createOption()
+    let option2 = new createElement(null, null, null, null, null, `${data.lenses[1]}`, null, null, `${data.lenses}`).createOption()
     let option3 = new createElement(null, null, null, null, null, `${data.lenses[2]}`, null, null, `${data.lenses}`).createOption()
     let a = new createElement('btn btn-warning', null, null, 'data-panier', `${data._id}`, 'Ajouter au panier +', null, null, null, '#').createLink2()
 
@@ -83,16 +84,53 @@ function setProduit(data) {
     select.append(option3)
 }
 
+function setPanier(data) {
+    //Elements crées
+    let div2 = new createElement('row no-gutters').createDiv2()
+    let div3 = new createElement('col-md-4').createDiv2()
+    let img = new createElement('card-img', null, null, null, null, null, `${data.imageUrl}`, 'Appareil photo').createImg()
+    let div3Bis = new createElement('col-md-8').createDiv2()
+    let div4 = new createElement('card-body').createDiv2()
+    let div5 = new createElement('card-body--title').createDiv2()
+    let h5 = new createElement('card-title', null, null, null, null, `${data.name}`).createTitle()
+    let p1 = new createElement('card-text', null, null, null, null, `${data.price}£`).createParagraphe()
+    let p2 = new createElement('card-text', null, null, null, null, `${data.description}`).createParagraphe()
+    let label = new createElement('card-text', 'for', 'lentilles', null, null, 'Lentilles : ').createLabel()
+    let select = new createElement('lentilles', 'id', 'lentilles').createSelect()
+    let option1 = new createElement(null, null, null, null, null, `${data.lenses[0]}`, null, null, `${data.lenses}`).createOption()
+    let option2 = new createElement(null, null, null, null, null, `${data.lenses[1]}`, null, null, `${data.lenses}`).createOption()
+    let option3 = new createElement(null, null, null, null, null, `${data.lenses[2]}`, null, null, `${data.lenses}`).createOption()
+    let a = new createElement('btn btn-warning', null, null, 'data-panier', `${data._id}`, 'Ajouter au panier +', null, null, null, '#').createLink2()
+
+    //Parents
+    $('#panier').append(div2)
+    div2.append(div3)
+    div3.append(img)
+    div2.append(div3Bis)
+    div3Bis.append(div4)
+    div4.append(div5)
+    div5.append(h5)
+    div5.append(a)
+    div4.append(p1)
+    div4.append(p2)
+    div4.append(label)
+    div4.append(select)
+    select.append(option1)
+    select.append(option2)
+    select.append(option3)
+}
+
+
 //Appel page Produit
 function getProduit() {
-    getAccueil().then(function () {
+    getAccueil().then(function() {
         let links = document.querySelectorAll('#listedesproduits a')
 
         let p = new createElement('text-center--white', null, null, null, null, "Aucun produit n'a été sélectionné").createParagraphe()
         $('#produit').append(p)
 
         for (let link of links) {
-            link.addEventListener('click', async function () {
+            link.addEventListener('click', async function() {
                 let num = this.getAttribute('data-button')
                 localStorage.setItem('ids', num)
                 let getItem = localStorage.getItem('ids')
@@ -107,8 +145,8 @@ function getProduit() {
 
                 let response = await fetch(url)
                 let data = await response.json()
-                let pages = await setProduit(data)
-                return pages
+                let produit = await setProduit(data)
+                return produit
             })
         }
     }).catch(err => console.log('Erreur' + err))
