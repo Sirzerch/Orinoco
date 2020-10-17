@@ -29,7 +29,7 @@ function setAccueil(data) {
             tr.appendChild(item)
         }
 
-        let img = new createElement('img-fluid img-thumbnail', null, null, null, null, null,`${cam.imageUrl}`, 'Appareil photo')
+        let img = new createElement('img-fluid img-thumbnail', null, null, null, null, null, `${cam.imageUrl}`, 'Appareil photo')
         td1.appendChild(img.createImg())
 
         let a = new createElement('btn btn-primary', 'data-button', `${cam._id}`, null, null, 'Détails', null, null, null, '#')
@@ -58,10 +58,10 @@ function setProduit(data) {
     let h5 = new createElement('card-title', null, null, null, null, `${data.name}`).createTitle()
     let p1 = new createElement('card-text', null, null, null, null, `${data.price}£`).createParagraphe()
     let p2 = new createElement('card-text', null, null, null, null, `${data.description}`).createParagraphe()
-    let label = new createElement('card-text', 'for', 'lentilles',null, null, 'Lentilles : ').createLabel()
+    let label = new createElement('card-text', 'for', 'lentilles', null, null, 'Lentilles : ').createLabel()
     let select = new createElement('lentilles', 'id', 'lentilles').createSelect()
     let option1 = new createElement(null, null, null, null, null, `${data.lenses[0]}`, null, null, `${data.lenses}`).createOption()
-    let option2 = new createElement(null, null, null, null, null,`${data.lenses[1]}`, null, null, `${data.lenses}`).createOption()
+    let option2 = new createElement(null, null, null, null, null, `${data.lenses[1]}`, null, null, `${data.lenses}`).createOption()
     let option3 = new createElement(null, null, null, null, null, `${data.lenses[2]}`, null, null, `${data.lenses}`).createOption()
     let a = new createElement('btn btn-warning', null, null, 'data-panier', `${data._id}`, 'Ajouter au panier +', null, null, null, '#').createLink2()
 
