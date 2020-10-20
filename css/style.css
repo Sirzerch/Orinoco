@@ -130,9 +130,6 @@ img {
 }
 
 .card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   word-wrap: break-word;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -354,5 +351,13 @@ h5 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0;
+}
+
+#panier {
+  background: #5c3710;
+  opacity: 0;
+  -webkit-animation: fondu 1000ms 1000ms forwards;
+          animation: fondu 1000ms 1000ms forwards;
 }
 /*# sourceMappingURL=style.css.map */

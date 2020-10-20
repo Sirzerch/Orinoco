@@ -9,13 +9,13 @@ let $ = function (selector) {
 
 let page_creator = new CreatePage()
 let element_creator = new CreateElement()
+let p = new Accueil()
 
 //API caméra
 let url = "http://localhost:3000/api/cameras/"
 
 function setAccueil(data) {
     for (let cam of data) {
-        let p = new Accueil()
         let tr = p.set_product(element_creator, cam)
         let list = $('#listedesproduits')
         list.appendChild(tr)
@@ -28,18 +28,41 @@ async function getAccueil() {
     let page = await setAccueil(data)
     return page
 }
-getAccueil()
 
 // Crée la page produit a partir des données de l'API
 function setProduit(data) {
     let div = page_creator.create_page_product(element_creator, data)
     $('#produit').append(div)
 
-    // le this fait référence à l'élément "a". Si ca foire, 
-    // passer directement l'id par exemple : ${data._id} à la place du this
-    // a.addEventListener('click', function(this) {
-    //     send_to_basket(`${data._id}`)
-    // });
+    let a = document.querySelector('#produit a')
+
+    getPanier(a)
+}
+
+function setPanier(data) {
+    let div = page_creator.create_page_panier(element_creator, data)
+    $('#panier').append(div)
+}
+
+function getPanier(a,) {
+    a.addEventListener('click', async function(e) {
+        e.stopPropagation()
+        let num = a.getAttribute('data-panier')
+        localStorage.setItem('ids', num)
+        let getItem = localStorage.getItem('ids')
+    
+        let page = document.getElementsByTagName('a')
+        let pageProduit = page[2]
+        pageProduit.click()
+
+    
+        let url = `http://localhost:3000/api/cameras/${getItem}`
+    
+        let response = await fetch(url)
+        let data = await response.json()
+        let produit = await setPanier(data)
+        return produit
+    });
 }
 
 function add_products_listeners(links) {
@@ -67,16 +90,20 @@ function add_products_listeners(links) {
 
 // Mise en place des event listeners sur les liens de la home
 // pour renvoyer sur la page produit
-getAccueil().then(function() {
+getAccueil().then(function(secondP ) {
     let links = document.querySelectorAll('#listedesproduits a')
 
-    let p = element_creator.createParagraphe('text-center--white', "Aucun produit n'a été sélectionné")
-    $('#produit').append(p)
+    let firstP = element_creator.createParagraphe('text-center--white', "Aucun produit n'a été sélectionné")
+    $('#produit').append(firstP)
+
+    let secondP = element_creator.createParagraphe('text-center--white', "Le panier est vide")
+    $('#panier').append(secondP)
 
     // ajout des listeners produits
     add_products_listeners(links)
 
 }).catch(err => console.log('Erreur' + err))
+
 
 
 
