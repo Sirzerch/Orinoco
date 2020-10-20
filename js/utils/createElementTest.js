@@ -41,13 +41,13 @@ export default class CreateElement {
         }
         return div
     }
-    createOption(value, innerHTML) {
+    createOption(innerHTML, value) {
         let option = document.createElement('option')
         option.value = value
         option.innerHTML = innerHTML
         return option
     }
-    createParagraphe(className, firstSetAttributeName = null, firstSetAttributeValue = null, innerHTML) {
+    createParagraphe(className, innerHTML, firstSetAttributeName = null, firstSetAttributeValue = null) {
         let p = document.createElement('p')
         p.className = className
         p.innerHTML = innerHTML

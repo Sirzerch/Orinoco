@@ -43,7 +43,41 @@ function setProduit(data) {
     // });
 }
 
+function add_products_listeners(links) {
+    for (let link of links) {
+        link.addEventListener('click', async function() {
+            let num = this.getAttribute('data-button')
+            localStorage.setItem('ids', num)
+            let getItem = localStorage.getItem('ids')
 
+            let page = document.getElementsByTagName('a')
+            let pageProduit = page[1]
+            pageProduit.click()
+
+            $('#produit').innerHTML = ''
+
+            let url = `http://localhost:3000/api/cameras/${getItem}`
+
+            let response = await fetch(url)
+            let data = await response.json()
+            // pour chaque produit
+            let produit = await setProduit(data)
+        })
+    }
+}
+
+// Mise en place des event listeners sur les liens de la home
+// pour renvoyer sur la page produit
+getAccueil().then(function() {
+    let links = document.querySelectorAll('#listedesproduits a')
+
+    let p = element_creator.createParagraphe('text-center--white', "Aucun produit n'a été sélectionné")
+    $('#produit').append(p)
+
+    // ajout des listeners produits
+    add_products_listeners(links)
+
+}).catch(err => console.log('Erreur' + err))
 
 
 
