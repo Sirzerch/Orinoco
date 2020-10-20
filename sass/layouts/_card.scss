@@ -1,7 +1,6 @@
 //Cartes chaque produits
 .card {
     display: flex;
-    flex-direction: column;
     word-wrap: break-word;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, .125);
@@ -20,10 +19,10 @@
         padding: 1.25rem;
         color: $blanc;
 
-        &--title {
-            display: flex;
-            justify-content: space-between;
-        }
+        // &--title {
+        //     // display: flex;
+        //     // justify-content: space-between;
+        // }
 
     }
 
