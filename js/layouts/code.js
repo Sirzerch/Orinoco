@@ -44,30 +44,34 @@ function setPanier(data) {
     $('#panier').append(div)
 }
 
-function getPanier(a,) {
-    a.addEventListener('click', async function(e) {
+function getPanier(a) {
+    a.addEventListener('click', async function (e) {
         e.stopPropagation()
         let num = a.getAttribute('data-panier')
         localStorage.setItem('ids', num)
         let getItem = localStorage.getItem('ids')
-    
+
         let page = document.getElementsByTagName('a')
         let pageProduit = page[2]
         pageProduit.click()
+        
+        let test = $('#panier').getElementsByTagName('p')
 
-    
+        if(test.length < 2) {
+            $('#panier').innerHTML = ''
+        }
+
         let url = `http://localhost:3000/api/cameras/${getItem}`
-    
+
         let response = await fetch(url)
         let data = await response.json()
         let produit = await setPanier(data)
-        return produit
     });
 }
 
 function add_products_listeners(links) {
     for (let link of links) {
-        link.addEventListener('click', async function() {
+        link.addEventListener('click', async function () {
             let num = this.getAttribute('data-button')
             localStorage.setItem('ids', num)
             let getItem = localStorage.getItem('ids')
@@ -90,7 +94,7 @@ function add_products_listeners(links) {
 
 // Mise en place des event listeners sur les liens de la home
 // pour renvoyer sur la page produit
-getAccueil().then(function(secondP ) {
+getAccueil().then(function () {
     let links = document.querySelectorAll('#listedesproduits a')
 
     let firstP = element_creator.createParagraphe('text-center--white', "Aucun produit n'a été sélectionné")
