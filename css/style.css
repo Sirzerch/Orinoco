@@ -57,6 +57,33 @@ img {
   display: block;
 }
 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal__contains {
+  overflow: auto;
+  background: white;
+  width: 600px;
+  padding: 20px;
+  max-width: calc(100vw - 20px);
+  max-height: calc(100vh - 20px);
+}
+
 .btn {
   -webkit-transition: none;
   transition: none;
@@ -82,6 +109,17 @@ img {
 
 .btn:not(:disabled):not(.disabled) {
   cursor: pointer;
+}
+
+.commande {
+  position: absolute;
+  bottom: -5rem;
+  border: 2px solid #e0a800;
+  padding: 5px;
+}
+
+.commande p {
+  margin-top: 0;
 }
 
 .icon {
@@ -359,5 +397,6 @@ h5 {
   opacity: 0;
   -webkit-animation: fondu 1000ms 1000ms forwards;
           animation: fondu 1000ms 1000ms forwards;
+  position: relative;
 }
 /*# sourceMappingURL=style.css.map */

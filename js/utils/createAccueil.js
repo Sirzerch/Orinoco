@@ -26,7 +26,7 @@ export default class Accueil {
         let img = element_creator.createImg('img-fluid img-thumbnail', `${cam.imageUrl}`, 'Appareil photo')
         td1.appendChild(img)
 
-        let a = element_creator.createLink('btn btn-primary', 'data-button', `${cam._id}`, 'Détails', '#')
+        let a = element_creator.createLink('btn btn-primary', 'Détails', '#', 'data-button', `${cam._id}`)
         td5.appendChild(a)
 
         return tr

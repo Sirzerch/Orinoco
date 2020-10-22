@@ -33,9 +33,6 @@
                         <a class="nav-link" data-pages="2" href="#"><span>03.</span>Panier</a>
                     </li>
                 </ul>
-                <!-- <div class="buttons">
-                        <a href="#">Contact</a>
-                    </div> -->
             </nav>
             <div class="icon--bar"></div>
         </header>
@@ -58,13 +55,30 @@
         <div id="page2">
             <div class="card">
                 <div id="panier">
+                    <div class="commande">
+                        <p>Sous-total : <span></span></p>
+                        <a href="#modal1" class="js-modal">Passer la Commande</a>
+                    </div>
+                        <aside id="modal1" class="modal" style="display: none;">
+                            <div class="modal__contains">
+                                <form method="POST" name="inscription">
+                                    <input type="text" name="pseudo" placeholder="Pseudo"><br>
+                                    <input type="email" name="email" placeholder="Email" id="email"><br>
+                                    <input type="email" name="email-confirmation" placeholder="Confirmation de l'email"
+                                        id="email2"><br>
+                                    <input type="password" name="mdp" placeholder="Mot de passe"><br>
+                                    <input type="submit" value="Inscription">
+                                </form>
+                            </div>
+                        </aside>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="js/base/pages.js"></script>
-    <script type="module" src="js/layouts/code.js"></script>
+        <script src="js/base/pages.js"></script>
+        <script src="js/layouts/modal.js"></script>
+        <script type="module" src="js/layouts/code.js"></script>
 </body>
 
 </html>

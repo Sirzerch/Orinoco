@@ -1,105 +1,80 @@
 //Création des éléments HTML
-export default class createElement {
-    constructor(className, firstName, firstValue, secondName, secondValue, text, src, alt, val, href) {
-        this.className = className
-        this.firstSetAttributeName = firstName
-        this.firstSetAttributeValue = firstValue
-        this.secondSetAttributeName = secondName
-        this.secondSetAttributeValue = secondValue
-        this.innerHTML = text
-        this.src = src
-        this.alt = alt
-        this.value = val
-        this.href = href
+export default class CreateElement {
+    constructor() {
     }
 
-    createTr() {
+    createTr(className, firstSetAttributeName, firstSetAttributeValue) {
         let tr = document.createElement('tr')
-        tr.className = this.className
-        tr.setAttribute(this.firstSetAttributeName, this.firstSetAttributeValue)
+        tr.className = className
+        tr.setAttribute(firstSetAttributeName, firstSetAttributeValue)
         return tr
     }
-
-    createTd() {
+    createTd(className, firstSetAttributeName, firstSetAttributeValue, innerHTML = null) {
         let td = document.createElement('td')
-        td.className = this.className
-        td.setAttribute(this.firstSetAttributeName, this.firstSetAttributeValue)
-        td.innerHTML = this.innerHTML
+        td.className = className
+        td.setAttribute(firstSetAttributeName, firstSetAttributeValue)
+        if(innerHTML != null) {
+            td.innerHTML = innerHTML
+        }
         return td
     }
-    createImg() {
+    createImg(className, src, alt) {
         let img = document.createElement('img')
-        img.className = this.className
-        img.src = this.src
-        img.alt = this.alt
+        img.className = className
+        img.src = src
+        img.alt = alt
         return img
     }
-    createLink() {
+    createLink(className, innerHTML, href, firstSetAttributeName = null, firstSetAttributeValue = null) {
         let a = document.createElement('a')
-        a.className = this.className
-        a.setAttribute(this.firstSetAttributeName, this.firstSetAttributeValue)
-        a.innerHTML = this.innerHTML
-        a.href = this.href
+        a.className = className
+        a.innerHTML = innerHTML
+        a.href = href
+        if (firstSetAttributeName != null && firstSetAttributeValue != null) {
+            a.setAttribute(firstSetAttributeName, firstSetAttributeValue)
+        }
         return a
     }
-    createLink2() {
-        let a = document.createElement('a')
-        a.className = this.className
-        a.setAttribute(this.firstSetAttributeName, this.firstSetAttributeValue)
-        a.setAttribute(this.secondSetAttributeName, this.secondSetAttributeValue)
-        a.innerHTML = this.innerHTML
-        a.href = this.href
-        return a
-    }
-    createDiv() {
+    createDiv(className, firstSetAttributeName = null, firstSetAttributeValue = null) {
         let div = document.createElement('div')
-        div.className = this.className
-        div.setAttribute(this.firstSetAttributeName, this.firstSetAttributeValue)
+        div.className = className
+        if (firstSetAttributeName != null && firstSetAttributeValue != null) {
+            div.setAttribute(firstSetAttributeName, firstSetAttributeValue)
+        }
         return div
     }
-    createDiv2() {
-        let div = document.createElement('div')
-        div.className = this.className
-        return div
-    }
-
-    createOption() {
+    createOption(innerHTML, value) {
         let option = document.createElement('option')
-        option.value = this.value
-        option.innerHTML = this.innerHTML
+        option.value = value
+        option.innerHTML = innerHTML
         return option
     }
-
-    createParagraphe() {
+    createParagraphe(className, innerHTML, firstSetAttributeName = null, firstSetAttributeValue = null) {
         let p = document.createElement('p')
-        p.className = this.className
-        p.innerHTML = this.innerHTML
-        p.setAttribute(this.firstSetAttributeName, this.firstSetAttributeValue)
+        p.className = className
+        p.innerHTML = innerHTML
+        if(firstSetAttributeName != null && firstSetAttributeValue != null) {
+            p.setAttribute(firstSetAttributeName, firstSetAttributeValue)
+        }
         return p
     }
-
-    createTitle() {
+    createTitle(className, innerHTML) {
         let h5 = document.createElement('h5')
-        h5.className = this.className
-        h5.innerHTML = this.innerHTML
+        h5.className = className
+        h5.innerHTML = innerHTML
         return h5
     }
-
-    createLabel() {
+    createLabel(className, firstSetAttributeName, firstSetAttributeValue, innerHTML) {
         let label = document.createElement('label')
-        label.setAttribute(this.firstSetAttributeName, this.firstSetAttributeValue)
-        label.innerHTML = this.innerHTML
-        label.className = this.className
+        label.className = className
+        label.setAttribute(firstSetAttributeName, firstSetAttributeValue)
+        label.innerHTML = innerHTML
         return label
     }
-
-    createSelect() {
+    createSelect(className, firstSetAttributeName, firstSetAttributeValue) {
         let select = document.createElement('select')
-        select.className = this.className
-        select.setAttribute(this.firstSetAttributeName, this.firstSetAttributeValue)
+        select.className = className
+        select.setAttribute(firstSetAttributeName, firstSetAttributeValue)
         return select
     }
 }
-
-
-
