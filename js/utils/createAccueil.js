@@ -1,11 +1,6 @@
 export default class Accueil {
 
-    constructor(id, name, price, description, image_url) {
-        this.id = id
-        this.name = name
-        this.price = price
-        this.description = description
-        this.image_url = image_url
+    constructor() {
     }
 
     set_product(element_creator, cam) {

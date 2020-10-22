@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
     <title>Orinoco</title>
 </head>
 
@@ -53,32 +52,37 @@
         </div>
         <!--Page Panier-->
         <div id="page2">
-            <div class="card">
+            <div class="table">
                 <div id="panier">
-                    <div class="commande">
-                        <p>Sous-total : <span></span></p>
-                        <a href="#modal1" class="js-modal">Passer la Commande</a>
-                    </div>
-                        <aside id="modal1" class="modal" style="display: none;">
-                            <div class="modal__contains">
-                                <form method="POST" name="inscription">
-                                    <input type="text" name="pseudo" placeholder="Pseudo"><br>
-                                    <input type="email" name="email" placeholder="Email" id="email"><br>
-                                    <input type="email" name="email-confirmation" placeholder="Confirmation de l'email"
-                                        id="email2"><br>
-                                    <input type="password" name="mdp" placeholder="Mot de passe"><br>
-                                    <input type="submit" value="Inscription">
-                                </form>
-                            </div>
-                        </aside>
-                    </div>
                 </div>
+                <!--Bouton de commande pour accéder au formulaire-->
+                <div class="commande">
+                    <p>Sous-total : <span id="price"></span></p>
+                    <a href="#modal1" class="js-modal">Passer la Commande</a>
+                </div>
+                <aside id="modal1" class="modal" style="display: none;">
+                    <div class="modal__contains">
+                        <div class="modal__title">
+                            <h1>Formulaire de commande</h1>
+                            <button class="js-modal-close">Fermer</button>
+                        </div>
+                        <form method="POST" name="inscription" class="modal__form">
+                            <input type="text" name="firstName" placeholder="Prénom"><br />
+                            <input type="text" name="lastName" placeholder="Nom"><br />
+                            <input type="text" name="address" placeholder="Adresse"><br />
+                            <input type="text" name="city" placeholder="Ville"><br />
+                            <input type="email" name="email" placeholder="Email"><br />
+                            <input type="submit" value="Commander">
+                        </form>
+                    </div>
+                </aside>
             </div>
         </div>
+    </div>
 
-        <script src="js/base/pages.js"></script>
-        <script src="js/layouts/modal.js"></script>
-        <script type="module" src="js/layouts/code.js"></script>
+    <script src="js/base/pages.js"></script>
+    <script src="js/layouts/modal.js"></script>
+    <script type="module" src="js/layouts/code.js"></script>
 </body>
 
 </html>

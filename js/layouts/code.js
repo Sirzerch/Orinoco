@@ -9,14 +9,14 @@ let $ = function (selector) {
 
 let page_creator = new CreatePage()
 let element_creator = new CreateElement()
-let p = new Accueil()
+let page_accueil = new Accueil()
 
 //API caméra
 let url = "http://localhost:3000/api/cameras/"
 
 function setAccueil(data) {
     for (let cam of data) {
-        let tr = p.set_product(element_creator, cam)
+        let tr = page_accueil.set_product(element_creator, cam)
         let list = $('#listedesproduits')
         list.appendChild(tr)
     }
@@ -32,8 +32,8 @@ async function getAccueil() {
 
 // Crée la page produit a partir des données de l'API
 function setProduit(data) {
-    let div = page_creator.create_page_product(element_creator, data)
-    $('#produit').append(div)
+    let tr = page_creator.create_page_product(element_creator, data)
+    $('#produit').append(tr)
 
     let a = document.querySelector('#produit a')
 
@@ -56,9 +56,9 @@ function getPanier(a) {
         let pageProduit = page[2]
         pageProduit.click()
         
-        let test = $('#panier').getElementsByTagName('p')
+        let test = document.querySelectorAll('#panier p.text-center--white')
 
-        if(test.length < 2) {
+        if (test.length == 1) {
             $('#panier').innerHTML = ''
         }
 
@@ -66,7 +66,8 @@ function getPanier(a) {
 
         let response = await fetch(url)
         let data = await response.json()
-        let produit = await setPanier(data)
+        let panier = await setPanier(data)
+        return panier
     });
 }
 
@@ -88,6 +89,7 @@ function add_products_listeners(links) {
             let response = await fetch(url)
             let data = await response.json()
             let produit = await setProduit(data)
+            return produit
         })
     }
 }
