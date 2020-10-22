@@ -26,6 +26,11 @@
 }
 .commande {
     position: absolute;
-    bottom: -4rem;
-    left: 45%;
+    bottom: -5rem;
+    border: 2px solid $warning;
+    padding: 5px;
+
+    & p {
+        margin-top: 0;
+    }
 }

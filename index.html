@@ -56,7 +56,9 @@
             <div class="card">
                 <div id="panier">
                     <div class="commande">
-                        <a href="#modal1">Commande</a>
+                        <p>Sous-total : <span></span></p>
+                        <a href="#modal1" class="js-modal">Passer la Commande</a>
+                    </div>
                         <aside id="modal1" class="modal" style="display: none;">
                             <div class="modal__contains">
                                 <form method="POST" name="inscription">
@@ -73,10 +75,10 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="js/base/pages.js"></script>
-    <script type="module" src="js/layouts/code.js"></script>
+        <script src="js/base/pages.js"></script>
+        <script src="js/layouts/modal.js"></script>
+        <script type="module" src="js/layouts/code.js"></script>
 </body>
 
 </html>

@@ -113,8 +113,13 @@ img {
 
 .commande {
   position: absolute;
-  bottom: -4rem;
-  left: 45%;
+  bottom: -5rem;
+  border: 2px solid #e0a800;
+  padding: 5px;
+}
+
+.commande p {
+  margin-top: 0;
 }
 
 .icon {
