@@ -87,7 +87,6 @@ function add_products_listeners(links) {
 
             let response = await fetch(url)
             let data = await response.json()
-            // pour chaque produit
             let produit = await setProduit(data)
         })
     }
