@@ -16,5 +16,18 @@
         padding: 20px;
         max-width: calc(100vw - 20px);
         max-height: calc(100vh - 20px);
+
+        
+    }
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        
+        & h1 {
+            margin: 0;
+        }
+    }
+    &__form {
+        margin-top: 20px;
     }
 }
