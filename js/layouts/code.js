@@ -9,14 +9,14 @@ let $ = function (selector) {
 
 let page_creator = new CreatePage()
 let element_creator = new CreateElement()
-let p = new Accueil()
+let page_accueil = new Accueil()
 
 //API caméra
 let url = "http://localhost:3000/api/cameras/"
 
 function setAccueil(data) {
     for (let cam of data) {
-        let tr = p.set_product(element_creator, cam)
+        let tr = page_accueil.set_product(element_creator, cam)
         let list = $('#listedesproduits')
         list.appendChild(tr)
     }
@@ -31,8 +31,8 @@ async function getAccueil() {
 
 // Crée la page produit a partir des données de l'API
 function setProduit(data) {
-    let div = page_creator.create_page_product(element_creator, data)
-    $('#produit').append(div)
+    let tr = page_creator.create_page_product(element_creator, data)
+    $('#produit').append(tr)
 
     let a = document.querySelector('#produit a')
 
