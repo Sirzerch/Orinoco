@@ -55,9 +55,9 @@ function getPanier(a) {
         let pageProduit = page[2]
         pageProduit.click()
         
-        let test = $('#panier').getElementsByTagName('p')
+        let test = document.querySelectorAll('#panier p.text-center--white')
 
-        if(test.length < 2) {
+        if (test.length == 1) {
             $('#panier').innerHTML = ''
         }
 
@@ -65,7 +65,8 @@ function getPanier(a) {
 
         let response = await fetch(url)
         let data = await response.json()
-        let produit = await setPanier(data)
+        let panier = await setPanier(data)
+        return panier
     });
 }
 
@@ -87,6 +88,7 @@ function add_products_listeners(links) {
             let response = await fetch(url)
             let data = await response.json()
             let produit = await setProduit(data)
+            return produit
         })
     }
 }
