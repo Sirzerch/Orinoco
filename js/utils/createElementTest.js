@@ -25,12 +25,14 @@ export default class CreateElement {
         img.alt = alt
         return img
     }
-    createLink(className, firstSetAttributeName, firstSetAttributeValue, innerHTML, href) {
+    createLink(className, innerHTML, href, firstSetAttributeName = null, firstSetAttributeValue = null) {
         let a = document.createElement('a')
         a.className = className
-        a.setAttribute(firstSetAttributeName, firstSetAttributeValue)
         a.innerHTML = innerHTML
         a.href = href
+        if (firstSetAttributeName != null && firstSetAttributeValue != null) {
+            a.setAttribute(firstSetAttributeName, firstSetAttributeValue)
+        }
         return a
     }
     createDiv(className, firstSetAttributeName = null, firstSetAttributeValue = null) {

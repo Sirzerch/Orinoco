@@ -18,7 +18,7 @@ export default class CreatePage {
 		let firstOption = element_creator.createOption(`${data.lenses[0]}`, `${data.lenses}`)
 		let secondOption = element_creator.createOption(`${data.lenses[1]}`, `${data.lenses}`)
 		let thirdOption = element_creator.createOption(`${data.lenses[2]}`, `${data.lenses}`)
-		let a = element_creator.createLink('btn btn-warning', 'data-panier', `${data._id}`, 'Ajouter au panier +', '#')
+		let a = element_creator.createLink('btn btn-warning', 'Ajouter au panier +', '#', 'data-panier', `${data._id}`)
 
 	    firstDiv.append(secondDiv)
 		secondDiv.append(img)
@@ -54,7 +54,7 @@ export default class CreatePage {
 		let secondOption = element_creator.createOption(`${data.lenses[1]}`, `${data.lenses}`)
 		let thirdOption = element_creator.createOption(`${data.lenses[2]}`, `${data.lenses}`)
 
-	    firstDiv.append(secondDiv)
+		firstDiv.append(secondDiv)
 		secondDiv.append(img)
 		secondDiv.append(secondDivBis)
 		secondDivBis.append(thirdDiv)
