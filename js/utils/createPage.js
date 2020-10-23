@@ -56,7 +56,7 @@ export default class CreatePage {
 		let img = element_creator.createImg('img-fluid img-thumbnail', `${data.imageUrl}`, 'Appareil photo')
 		td1.appendChild(img)
 
-		let p = element_creator.createParagraphe('card-text', '1')
+		let p = element_creator.createParagraphe('card-text js-card-text', 1)
 		td5.appendChild(p)
 
 		return tr
