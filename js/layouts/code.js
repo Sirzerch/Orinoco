@@ -11,7 +11,7 @@ let $ = function (selector) {
 let page_creator = new CreatePage()
 let element_creator = new CreateElement()
 let page_accueil = new Accueil()
-let costTotal = new Panier()
+let panier = new Panier()
 
 
 
@@ -48,6 +48,12 @@ function setPanier(data) {
     let div = page_creator.create_page_panier(element_creator, data)
     $('#panier').append(div)
 
+    let total = panier.addProductPrice(data)
+    $('#price').innerHTML = total
+
+    let quantity = panier.quantityProduct(data)
+    let zizi = document.querySelector('.js-card-text').innerHTML = quantity
+    console.log(zizi)
 }
 
 function getPanier(a) {
@@ -72,9 +78,6 @@ function getPanier(a) {
         let response = await fetch(url)
         let data = await response.json()
         let panier = await setPanier(data)
-
-        let total = costTotal.addProductPrice(data)
-        document.querySelector('#price').innerHTML = total
         return panier
     });
 }
