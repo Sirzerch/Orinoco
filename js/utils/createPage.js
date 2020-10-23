@@ -56,8 +56,8 @@ export default class CreatePage {
 		let img = element_creator.createImg('img-fluid img-thumbnail', `${data.imageUrl}`, 'Appareil photo')
 		td1.appendChild(img)
 
-		let a = element_creator.createLink('btn btn-primary', 'Quantité', '#', 'data-button', `${data._id}`)
-		td5.appendChild(a)
+		let p = element_creator.createParagraphe('card-text', '1')
+		td5.appendChild(p)
 
 		return tr
 	}

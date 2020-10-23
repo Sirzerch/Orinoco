@@ -2,6 +2,7 @@
 import CreateElement from '../utils/createElement.js'
 import Accueil from '../utils/createAccueil.js'
 import CreatePage from '../utils/createPage.js'
+import Panier from '../utils/createBasket.js'
 
 let $ = function (selector) {
     return document.querySelector(selector);
@@ -10,6 +11,9 @@ let $ = function (selector) {
 let page_creator = new CreatePage()
 let element_creator = new CreateElement()
 let page_accueil = new Accueil()
+let costTotal = new Panier()
+
+
 
 //API caméra
 let url = "http://localhost:3000/api/cameras/"
@@ -43,6 +47,7 @@ function setProduit(data) {
 function setPanier(data) {
     let div = page_creator.create_page_panier(element_creator, data)
     $('#panier').append(div)
+
 }
 
 function getPanier(a) {
@@ -55,10 +60,10 @@ function getPanier(a) {
         let page = document.getElementsByTagName('a')
         let pageProduit = page[2]
         pageProduit.click()
-        
-        let test = document.querySelectorAll('#panier p.text-center--white')
 
-        if (test.length == 1) {
+        let panierVide = document.querySelectorAll('#panier p.text-center--white')
+
+        if (panierVide.length == 1) {
             $('#panier').innerHTML = ''
         }
 
@@ -67,6 +72,9 @@ function getPanier(a) {
         let response = await fetch(url)
         let data = await response.json()
         let panier = await setPanier(data)
+
+        let total = costTotal.addProductPrice(data)
+        document.querySelector('#price').innerHTML = total
         return panier
     });
 }
