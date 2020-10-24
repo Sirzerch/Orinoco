@@ -1,6 +1,7 @@
 export default class CreatePage {
 
 	constructor() {
+		this.ids = []
 	}
 
 	create_page_product(element_creator, data) {
@@ -38,27 +39,39 @@ export default class CreatePage {
 		return firstDiv
 	}
 
-	create_page_panier(element_creator, data) {
-		let items = []
-		let td1 = element_creator.createTd('w-25', 'data-tr', 'td')
-		let td2 = element_creator.createTd('align-middle', 'data-td', 'td', `${data.name}`)
-		let td3 = element_creator.createTd('align-middle', 'data-td', 'td', `${data.price}£`)
-		let td4 = element_creator.createTd('align-middle', 'data-td', 'td', `${data.description}`)
-		let td5 = element_creator.createTd('align-middle', 'data-td', 'td')
-		items.push(td1, td2, td3, td4, td5)
+	create_page_panier(element_creator, data, panier) {
+		let array = this.ids
+		
+		let findIndex = array.findIndex(prod => prod === `${data._id}`)
+		let find = array[findIndex]
 
-		let tr = element_creator.createTr('text-center', 'data-tr', 'tr')
+		if (!find) {
+			array.push(`${data._id}`)
 
-		for (let item of items) {
-			tr.appendChild(item)
+			let items = []
+			let td1 = element_creator.createTd('w-25', 'data-tr', 'td')
+			let td2 = element_creator.createTd('align-middle', 'data-td', 'td', `${data.name}`)
+			let td3 = element_creator.createTd('align-middle', 'data-td', 'td', `${data.price}£`)
+			let td4 = element_creator.createTd('align-middle', 'data-td', 'td', `${data.description}`)
+			let td5 = element_creator.createTd('align-middle', 'data-td', 'td')
+			items.push(td1, td2, td3, td4, td5)
+
+			let tr = element_creator.createTr('text-center', 'data-tr', 'tr')
+
+			for (let item of items) {
+				tr.appendChild(item)
+			}
+
+			let img = element_creator.createImg('img-fluid img-thumbnail', `${data.imageUrl}`, 'Appareil photo')
+			td1.appendChild(img)
+
+			let p = element_creator.createParagraphe(`card-text js-card-${data._id}`, 1)
+			td5.appendChild(p)
+			return tr
 		}
-
-		let img = element_creator.createImg('img-fluid img-thumbnail', `${data.imageUrl}`, 'Appareil photo')
-		td1.appendChild(img)
-
-		let p = element_creator.createParagraphe('card-text js-card-text', 1)
-		td5.appendChild(p)
-
-		return tr
+		else {
+			let quantity = panier.quantityProduct(data)
+			return quantity
+		}
 	}
 }

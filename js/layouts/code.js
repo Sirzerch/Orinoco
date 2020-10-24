@@ -44,20 +44,23 @@ function setProduit(data) {
     getPanier(a)
 }
 
+
 function setPanier(data) {
-    let div = page_creator.create_page_panier(element_creator, data)
-    $('#panier').append(div)
+    let div = page_creator.create_page_panier(element_creator, data, panier)
+
+    if(typeof div == "number") {
+        $(`.js-card-${data._id}`).innerHTML = div
+    }
+    else{
+        $('#panier').append(div)
+    }
 
     let total = panier.addProductPrice(data)
     $('#price').innerHTML = total
-
-    let quantity = panier.quantityProduct(data)
-    let zizi = document.querySelector('.js-card-text').innerHTML = quantity
-    console.log(zizi)
 }
 
 function getPanier(a) {
-    a.addEventListener('click', async function (e) {
+    a.addEventListener('click', async function(e) {
         e.stopPropagation()
         let num = a.getAttribute('data-panier')
         localStorage.setItem('ids', num)
@@ -77,7 +80,7 @@ function getPanier(a) {
 
         let response = await fetch(url)
         let data = await response.json()
-        let panier = await setPanier(data)
+        let panier = await setPanier(data, e)
         return panier
     });
 }
