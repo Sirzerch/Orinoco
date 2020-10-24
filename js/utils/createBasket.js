@@ -4,7 +4,7 @@ export default class Panier {
 		this.cost = 0
 		this.products = []
 		this.ids = []
-		this.quantity = 1
+		this.quantity = 2
 	}
 
 	addProductPrice(data) {
@@ -26,6 +26,7 @@ export default class Panier {
 		}
 		else {
 			array.push(`${data._id}`)
+			this.quantity = 2
 		}
 		return this.quantity
 	}
