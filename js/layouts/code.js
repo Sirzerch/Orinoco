@@ -1,4 +1,3 @@
-
 import CreateElement from '../utils/createElement.js'
 import Accueil from '../utils/createAccueil.js'
 import CreatePage from '../utils/createPage.js'
@@ -79,7 +78,7 @@ function getPanier(a) {
 
         let response = await fetch(url)
         let data = await response.json()
-        let panier = await setPanier(data, e)
+        let panier = await setPanier(data)
         return panier
     });
 }
@@ -110,6 +109,7 @@ function add_products_listeners(links) {
 // Mise en place des event listeners sur les liens de la home
 // pour renvoyer sur la page produit
 getAccueil().then(function () {
+
     let links = document.querySelectorAll('#listedesproduits a')
 
     let firstP = element_creator.createParagraphe('text-center--white', "Aucun produit n'a été sélectionné")
@@ -124,6 +124,33 @@ getAccueil().then(function () {
 }).catch(err => console.log('Erreur' + err))
 
 
+
+let form = document.getElementById('inscription')
+
+form.addEventListener('submit', async function(e) {
+    e.preventDefault()
+    let products = page_creator.productsOfPanier()
+    console.log(products)
+    let formData = new FormData(this)
+    let contact = {}
+
+    for(let [key, value] of formData) {
+        contact[key] = value
+    }
+    console.log(contact)
+    
+    let response = await fetch('http://localhost:3000/api/cameras/order', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({contact, products})
+   })
+   if(response.ok) {
+    let responseData = await response.json()
+    console.log(responseData)
+   }
+})
 
 
 

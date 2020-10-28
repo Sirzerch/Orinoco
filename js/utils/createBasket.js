@@ -10,7 +10,7 @@ export default class Panier {
 	addProductPrice(data) {
 		this.products.push(+`${data.price}`)
 		for (let product of this.products) {
-			this.cost = this.cost += +product
+			this.cost = this.cost += product
 		}
 		return this.cost
 	}
