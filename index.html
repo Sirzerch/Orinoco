@@ -66,13 +66,13 @@
                             <h1>Formulaire de commande</h1>
                             <button class="js-modal-close">Fermer</button>
                         </div>
-                        <form method="POST" name="inscription" class="modal__form">
-                            <input type="text" name="firstName" placeholder="Prénom"><br />
-                            <input type="text" name="lastName" placeholder="Nom"><br />
-                            <input type="text" name="address" placeholder="Adresse"><br />
-                            <input type="text" name="city" placeholder="Ville"><br />
-                            <input type="email" name="email" placeholder="Email"><br />
-                            <input type="submit" value="Commander">
+                        <form id="inscription" class="modal__form">
+                            <input type="text" name="firstName" placeholder="Prénom" required><br />
+                            <input type="text" name="lastName" placeholder="Nom" required><br />
+                            <input type="text" name="address" placeholder="Adresse" required><br />
+                            <input type="text" name="city" placeholder="Ville" required><br />
+                            <input type="email" name="email" placeholder="Email" required><br />
+                            <input type="submit" value="Valider">
                         </form>
                     </div>
                 </aside>
