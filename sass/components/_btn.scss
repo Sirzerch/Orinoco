@@ -1,17 +1,10 @@
 .btn {
-    transition: none;
     padding: .375rem .75rem;
     border-radius: .25rem;
     text-decoration: none;
-
-    &-warning {
-        color: #212529;
-        background-color: #ffc107;
-        border-color: #ffc107;
-    }
     
     &-primary {
-        color: #fff;
+        color: $blanc;
         border: 1px solid $warning;
     
         &:hover {
@@ -24,13 +17,36 @@
     }
     
 }
-.commande {
+.total {
     position: absolute;
-    bottom: -5rem;
-    border: 2px solid $warning;
+    bottom: -3rem;
     padding: 5px;
+    background: $primary;
+    color: $blanc;
+    border-radius: .25rem;
 
     & p {
-        margin-top: 0;
+        margin: 0;
+    }
+}
+
+.commande {
+    position: absolute;
+    bottom: -3rem;
+    right: 0;
+    padding: 5px;
+    background: $primary;
+    border-radius: .25rem;
+    box-shadow: 3px 3px $warning;
+
+    &:hover {
+        box-shadow: 0px 0px;
+        transition: 100ms;
+    }
+
+    & a {
+        margin: 0;
+        color: $blanc;
+        text-decoration: none;
     }
 }

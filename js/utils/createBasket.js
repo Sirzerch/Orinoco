@@ -1,23 +1,24 @@
 export default class Panier {
 
 	constructor() {
-		this.cost = 0
+		this.total = 0
 		this.products = []
 		this.ids = []
-		this.quantity = 2
+		this.quantity = 1
 	}
 
 	addProductPrice(data) {
+		this.total = 0
 		this.products.push(+`${data.price}`)
 		for (let product of this.products) {
-			this.cost = this.cost += product
+			this.total = this.total += product
 		}
-		return this.cost
+		return this.total
 	}
 
 	quantityProduct(data) {
 		let array = this.ids
-
+		
 		let findIndex = array.findIndex(prod => prod === `${data._id}`)
 		let find = array[findIndex]
 		
@@ -26,7 +27,8 @@ export default class Panier {
 		}
 		else {
 			array.push(`${data._id}`)
-			this.quantity = 2
+			this.quantity = 1
+			this.quantity++
 		}
 		return this.quantity
 	}
