@@ -1,18 +1,19 @@
 export default class Panier {
 
 	constructor() {
-		this.cost = 0
+		this.total = 0
 		this.products = []
 		this.ids = []
 		this.quantity = 2
 	}
 
 	addProductPrice(data) {
+		this.total = 0
 		this.products.push(+`${data.price}`)
 		for (let product of this.products) {
-			this.cost = this.cost += product
+			this.total = this.total += product
 		}
-		return this.cost
+		return this.total
 	}
 
 	quantityProduct(data) {
