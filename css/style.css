@@ -102,21 +102,13 @@ img {
 }
 
 .btn {
-  -webkit-transition: none;
-  transition: none;
   padding: .375rem .75rem;
   border-radius: .25rem;
   text-decoration: none;
 }
 
-.btn-warning {
-  color: #212529;
-  background-color: #ffc107;
-  border-color: #ffc107;
-}
-
 .btn-primary {
-  color: #fff;
+  color: white;
   border: 1px solid #e0a800;
 }
 
@@ -128,15 +120,41 @@ img {
   cursor: pointer;
 }
 
-.commande {
+.total {
   position: absolute;
-  bottom: -5rem;
-  border: 2px solid #e0a800;
+  bottom: -3rem;
   padding: 5px;
+  background: #5c3710;
+  color: white;
+  border-radius: .25rem;
 }
 
-.commande p {
-  margin-top: 0;
+.total p {
+  margin: 0;
+}
+
+.commande {
+  position: absolute;
+  bottom: -3rem;
+  right: 0;
+  padding: 5px;
+  background: #5c3710;
+  border-radius: .25rem;
+  -webkit-box-shadow: 3px 3px #e0a800;
+          box-shadow: 3px 3px #e0a800;
+}
+
+.commande:hover {
+  -webkit-box-shadow: 0px 0px;
+          box-shadow: 0px 0px;
+  -webkit-transition: 100ms;
+  transition: 100ms;
+}
+
+.commande a {
+  margin: 0;
+  color: white;
+  text-decoration: none;
 }
 
 .icon {
@@ -241,10 +259,6 @@ img {
 }
 
 .header__nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 999vh;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -264,12 +278,11 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 40vh;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   font-size: 18px;
-  margin: 0;
+  margin: 20px 0 20px 0;
 }
 
 .header__nav span {
@@ -308,7 +321,7 @@ img {
   display: flex;
   margin-right: 20px;
   font-size: 45px;
-  margin: 20px 20px 9px 20px;
+  margin: 20px 20px 0px 20px;
 }
 
 .header__title p {
