@@ -54,7 +54,6 @@ function setPanier(data) {
     }
 
     let total = panier.addProductPrice(data)
-    console.log(total)
     $('#price').innerHTML = total
 }
 

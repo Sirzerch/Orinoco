@@ -4,7 +4,7 @@ export default class Panier {
 		this.total = 0
 		this.products = []
 		this.ids = []
-		this.quantity = 2
+		this.quantity = 1
 	}
 
 	addProductPrice(data) {
@@ -18,7 +18,7 @@ export default class Panier {
 
 	quantityProduct(data) {
 		let array = this.ids
-
+		
 		let findIndex = array.findIndex(prod => prod === `${data._id}`)
 		let find = array[findIndex]
 		
@@ -27,7 +27,8 @@ export default class Panier {
 		}
 		else {
 			array.push(`${data._id}`)
-			this.quantity = 2
+			this.quantity = 1
+			this.quantity++
 		}
 		return this.quantity
 	}
