@@ -47,13 +47,15 @@ img {
 
 #page0,
 #page1,
-#page2 {
+#page2,
+#page3 {
   display: none;
 }
 
 #page0.active,
 #page1.active,
-#page2.active {
+#page2.active,
+#page3.active {
   display: block;
 }
 
