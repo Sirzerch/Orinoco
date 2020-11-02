@@ -42,7 +42,6 @@ function setProduit(data) {
     getPanier(a)
 }
 
-
 function setPanier(data) {
     let div = page_creator.create_page_panier(element_creator, data, panier)
 
@@ -117,6 +116,9 @@ getAccueil().then(function () {
 
     let secondP = element_creator.createParagraphe('text-center--white', "Le panier est vide")
     $('#panier').append(secondP)
+    
+    let thirdP = element_creator.createParagraphe('text-center--white', "Aucune commande effectuée")
+    $('#commande').append(thirdP)
 
     // ajout des listeners produits
     add_products_listeners(links)
@@ -130,14 +132,12 @@ let form = document.getElementById('inscription')
 form.addEventListener('submit', async function(e) {
     e.preventDefault()
     let products = page_creator.productsOfPanier()
-    console.log(products)
     let formData = new FormData(this)
     let contact = {}
 
     for(let [key, value] of formData) {
         contact[key] = value
     }
-    console.log(contact)
     
     let response = await fetch('http://localhost:3000/api/cameras/order', {
         method: 'POST',
@@ -149,6 +149,17 @@ form.addEventListener('submit', async function(e) {
    if(response.ok) {
     let responseData = await response.json()
     console.log(responseData)
+
+    let page = document.getElementsByTagName('a')
+    let pageProduit = page[3]
+    pageProduit.click()
+    
+    let panierVide = document.querySelectorAll('#commande p.text-center--white')
+
+    if (panierVide.length == 1) {
+        $('#commande').innerHTML = ''
+    }
+    $('#commande').append(responseData.orderId)
    }
 })
 

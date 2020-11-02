@@ -431,4 +431,11 @@ h5 {
           animation: fondu 1000ms 1000ms forwards;
   position: relative;
 }
+
+#commande {
+  background: #5c3710;
+  opacity: 0;
+  -webkit-animation: fondu 1000ms 1000ms forwards;
+          animation: fondu 1000ms 1000ms forwards;
+}
 /*# sourceMappingURL=style.css.map */
