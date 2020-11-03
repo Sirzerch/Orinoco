@@ -3,3 +3,51 @@
     opacity: 0;
     animation: fondu 1000ms 1000ms forwards;
 }
+
+.submit {
+    color: $blanc;
+    padding: 5px;
+
+    &__message {
+        text-align: center;
+        font-size: 20px;
+    }
+}
+
+.quantity {
+    display: flex;
+    justify-content: space-between;
+    
+    
+    &__less {
+        color: $blanc;
+        text-decoration: none;
+        margin: 0;
+        border-radius: 100%;
+        padding: 0 5px 0 5px;
+        box-shadow: 1px 1px $warning, 1px 0px 30px 0px $secondary;
+        margin: 0 10px 10px 8px;
+
+        &:hover {
+            box-shadow: none;
+            margin: 0 10px 8px 10px;
+            transition: ease-in-out 100ms;
+        }
+    }
+
+    &__more {
+        color: $blanc;
+        text-decoration: none;
+        margin: 0;
+        border-radius: 100%;
+        padding: 0 4px 0 4px;
+        box-shadow: 1px 1px $warning, 1px 0px 30px 0px $secondary;
+        margin: 0 10px 10px 10px;
+
+        &:hover {
+            box-shadow: none;
+            margin: 0 8px 8px 10px;
+            transition: ease-in-out 100ms;
+        }
+    }
+}

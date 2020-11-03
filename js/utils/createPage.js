@@ -39,7 +39,7 @@ export default class CreatePage {
 		return firstDiv
 	}
 
-	create_page_panier(element_creator, data, panier) {
+	create_page_panier(element_creator, data, panier, pageBasket) {
 		let array = this.ids
 		
 		let findIndex = array.findIndex(prod => prod === `${data._id}`)
@@ -48,6 +48,33 @@ export default class CreatePage {
 		if (!find) {
 			array.push(`${data._id}`)
 
+			let tr = element_creator.createTr('text-center', 'data-tr', 'tr')
+			let div = element_creator.createDiv('quantity')
+			
+			//
+			let elementsOfPanier = []
+			elementsOfPanier.push(tr, div)
+
+			let product = element_creator.createTr('product')
+
+			for(let elementOfPanier of elementsOfPanier) {
+				product.append(elementOfPanier)
+			}
+			//Fin
+			
+			//
+			let itemsOfQuantity = []
+			let less = element_creator.createLink('quantity__less', '-', '#')
+			let more = element_creator.createLink('quantity__more', '+', '#')
+			itemsOfQuantity.push(less, more)
+
+			for(let itemOfQuantity of itemsOfQuantity) {
+				div.append(itemOfQuantity)
+			}
+			//fin
+			// pageBasket.append(div)
+			
+			//
 			let items = []
 			let td1 = element_creator.createTd('w-25', 'data-tr', 'td')
 			let td2 = element_creator.createTd('align-middle', 'data-td', 'td', `${data.name}`)
@@ -55,8 +82,6 @@ export default class CreatePage {
 			let td4 = element_creator.createTd('align-middle', 'data-td', 'td', `${data.description}`)
 			let td5 = element_creator.createTd('align-middle', 'data-td', 'td')
 			items.push(td1, td2, td3, td4, td5)
-
-			let tr = element_creator.createTr('text-center', 'data-tr', 'tr')
 
 			for (let item of items) {
 				tr.appendChild(item)
@@ -67,12 +92,28 @@ export default class CreatePage {
 
 			let p = element_creator.createParagraphe(`card-text js-card-${data._id}`, 1)
 			td5.appendChild(p)
-			return tr
+			//Fin
+			return product
 		}
 		else {
 			let quantity = panier.quantityProduct(data)
 			return quantity
 		}
+	}
+
+	createPageCommande(element_creator, responseData, total) {
+		let elementsOfPageCommande = []
+		let firstP = element_creator.createParagraphe('submit__message', 'Orinoco vous remercie d\'avoir passé commande chez nous !!')
+		let secondP = element_creator.createParagraphe('submit__number', 'Numéro de commande : ' + responseData.orderId)
+		let thirdP = element_creator.createParagraphe('submit__cost','Sous-Total : ' + total +'£')
+		elementsOfPageCommande.push(firstP, secondP, thirdP)
+		
+		let div = element_creator.createDiv('submit')
+
+		for(let elementOfPageCommande of elementsOfPageCommande) {
+			div.append(elementOfPageCommande)
+		}
+		return div
 	}
 	
 	productsOfPanier() {

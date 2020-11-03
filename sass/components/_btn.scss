@@ -5,10 +5,13 @@
     
     &-primary {
         color: $blanc;
-        border: 1px solid $warning;
-    
+        box-shadow: 3px 3px $warning, -10px -10px 80px 0px $secondary;
+        margin: 0 3px 3px 0;
+        
         &:hover {
-            background-color: $warning;
+            margin: 0;
+            box-shadow: none;
+            transition: ease-in-out 100ms;
         }
     }
 
@@ -37,11 +40,13 @@
     padding: 5px;
     background: $primary;
     border-radius: .25rem;
-    box-shadow: 3px 3px $warning;
+    box-shadow: 3px 3px $warning, 3px 3px 20px 0px $secondary;
+    margin: 0 3px 3px 0;
 
     &:hover {
-        box-shadow: 0px 0px;
-        transition: 100ms;
+        box-shadow: none;
+        margin: 0;
+        transition: ease-in-out 100ms;
     }
 
     & a {

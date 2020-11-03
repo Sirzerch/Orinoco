@@ -43,7 +43,8 @@ function setProduit(data) {
 }
 
 function setPanier(data) {
-    let div = page_creator.create_page_panier(element_creator, data, panier)
+    let pageBasket = $('#panier')
+    let div = page_creator.create_page_panier(element_creator, data, panier, pageBasket)
 
     if(typeof div == "number") {
         $(`.js-card-${data._id}`).innerHTML = div
@@ -126,42 +127,50 @@ getAccueil().then(function () {
 }).catch(err => console.log('Erreur' + err))
 
 
+function submitForm() {
+    let form = document.getElementById('inscription')
 
-let form = document.getElementById('inscription')
-
-form.addEventListener('submit', async function(e) {
-    e.preventDefault()
-    let products = page_creator.productsOfPanier()
-    let formData = new FormData(this)
-    let contact = {}
-
-    for(let [key, value] of formData) {
-        contact[key] = value
-    }
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault()
+        let products = page_creator.productsOfPanier()
+        let formData = new FormData(this)
+        let contact = {}
     
-    let response = await fetch('http://localhost:3000/api/cameras/order', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({contact, products})
-   })
-   if(response.ok) {
-    let responseData = await response.json()
-    console.log(responseData)
-
-    let page = document.getElementsByTagName('a')
-    let pageProduit = page[3]
-    pageProduit.click()
+        for(let [key, value] of formData) {
+            contact[key] = value
+        }
+        
+        let response = await fetch('http://localhost:3000/api/cameras/order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({contact, products})
+       })
+       if(response.ok) {
+        let responseData = await response.json()
+        console.log(responseData)
     
-    let panierVide = document.querySelectorAll('#commande p.text-center--white')
+        let page = document.getElementsByTagName('a')
+        let pageProduit = page[3]
+        pageProduit.click()
+        
+        let panierVide = document.querySelectorAll('#commande p.text-center--white')
+    
+        if (panierVide.length == 1) {
+            $('#commande').innerHTML = ''
+        }
+       
+        let total = $('#price').innerHTML
 
-    if (panierVide.length == 1) {
-        $('#commande').innerHTML = ''
-    }
-    $('#commande').append(responseData.orderId)
-   }
-})
+        let div = page_creator.createPageCommande(element_creator, responseData, total)
+        $('#commande').append(div)
+       }
+    })
+}
+
+submitForm()
+
 
 
 
