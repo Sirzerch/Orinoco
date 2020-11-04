@@ -39,7 +39,7 @@ export default class CreatePage {
 		return firstDiv
 	}
 
-	create_page_panier(element_creator, data, panier, pageBasket) {
+	create_page_panier(element_creator, data, panier) {
 		let array = this.ids
 		
 		let findIndex = array.findIndex(prod => prod === `${data._id}`)
@@ -63,16 +63,15 @@ export default class CreatePage {
 			//Fin
 			
 			//
-			let itemsOfQuantity = []
-			let less = element_creator.createLink('quantity__less', '-', '#')
-			let more = element_creator.createLink('quantity__more', '+', '#')
-			itemsOfQuantity.push(less, more)
+			let btnsOfQuantity = []
+			let less = element_creator.createLink('quantity__less', '-', '#', 'data-less', `${data._id}`)
+			let more = element_creator.createLink('quantity__more', '+', '#', 'data-more', `${data._id}`)
+			btnsOfQuantity.push(less, more)
 
-			for(let itemOfQuantity of itemsOfQuantity) {
-				div.append(itemOfQuantity)
+			for(let btnOfQuantity of btnsOfQuantity) {
+				div.append(btnOfQuantity)
 			}
 			//fin
-			// pageBasket.append(div)
 			
 			//
 			let items = []
@@ -103,7 +102,7 @@ export default class CreatePage {
 
 	createPageCommande(element_creator, responseData, total) {
 		let elementsOfPageCommande = []
-		let firstP = element_creator.createParagraphe('submit__message', 'Orinoco vous remercie d\'avoir passé commande chez nous !!')
+		let firstP = element_creator.createParagraphe('submit__message', 'Orinoco vous remercie pour votre commande !')
 		let secondP = element_creator.createParagraphe('submit__number', 'Numéro de commande : ' + responseData.orderId)
 		let thirdP = element_creator.createParagraphe('submit__cost','Sous-Total : ' + total +'£')
 		elementsOfPageCommande.push(firstP, secondP, thirdP)

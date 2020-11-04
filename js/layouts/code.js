@@ -43,22 +43,26 @@ function setProduit(data) {
 }
 
 function setPanier(data) {
-    let pageBasket = $('#panier')
-    let div = page_creator.create_page_panier(element_creator, data, panier, pageBasket)
+    let div = page_creator.create_page_panier(element_creator, data, panier)
+    
 
-    if(typeof div == "number") {
+    if (typeof div == "number") {
         $(`.js-card-${data._id}`).innerHTML = div
     }
-    else{
+    else {
         $('#panier').append(div)
     }
+    lessQuantity(data)
+    moreQuantity(data)
 
     let total = panier.addProductPrice(data)
     $('#price').innerHTML = total
 }
 
+//Mise en place des events listeners sur les liens de la page produit
+//pour envoyer la page panier
 function getPanier(a) {
-    a.addEventListener('click', async function(e) {
+    a.addEventListener('click', async function (e) {
         e.stopPropagation()
         let num = a.getAttribute('data-panier')
         localStorage.setItem('ids', num)
@@ -117,7 +121,7 @@ getAccueil().then(function () {
 
     let secondP = element_creator.createParagraphe('text-center--white', "Le panier est vide")
     $('#panier').append(secondP)
-    
+
     let thirdP = element_creator.createParagraphe('text-center--white', "Aucune commande effectuée")
     $('#commande').append(thirdP)
 
@@ -127,49 +131,77 @@ getAccueil().then(function () {
 }).catch(err => console.log('Erreur' + err))
 
 
-function submitForm() {
-    let form = document.getElementById('inscription')
+let form = document.getElementById('inscription')
 
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault()
-        let products = page_creator.productsOfPanier()
-        let formData = new FormData(this)
-        let contact = {}
-    
-        for(let [key, value] of formData) {
-            contact[key] = value
-        }
-        
-        let response = await fetch('http://localhost:3000/api/cameras/order', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({contact, products})
-       })
-       if(response.ok) {
+form.addEventListener('submit', async function (e) {
+    e.preventDefault()
+    let products = page_creator.productsOfPanier()
+    let formData = new FormData(this)
+    let contact = {}
+
+    for (let [key, value] of formData) {
+        contact[key] = value
+    }
+
+    let response = await fetch('http://localhost:3000/api/cameras/order', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ contact, products })
+    })
+    if (response.ok) {
         let responseData = await response.json()
         console.log(responseData)
-    
+
         let page = document.getElementsByTagName('a')
         let pageProduit = page[3]
         pageProduit.click()
-        
+
         let panierVide = document.querySelectorAll('#commande p.text-center--white')
-    
+
         if (panierVide.length == 1) {
             $('#commande').innerHTML = ''
         }
-       
+
         let total = $('#price').innerHTML
 
         let div = page_creator.createPageCommande(element_creator, responseData, total)
         $('#commande').append(div)
-       }
-    })
+    }
+})
+
+function lessQuantity(data) {
+    let lessAll = document.querySelectorAll('.quantity__less')
+
+    for (let less of lessAll) {
+        less.addEventListener('click', function (e) {
+            e.preventDefault()
+            let lessTotal = panier.lessProductPrice(data)
+            $('#price').innerHTML = lessTotal
+            let idOfProduct = this.getAttribute('data-less')
+            let numberValue = $('.js-card-' + idOfProduct).innerHTML
+            let response = panier.lessQuantity(numberValue)
+            $('.js-card-' + idOfProduct).innerHTML = response  
+        })
+    }
+}
+function moreQuantity(data) {
+    let moreAll = document.querySelectorAll('.quantity__more')
+
+    for (let more of moreAll) {
+        more.addEventListener('click', function (e) {
+            e.preventDefault()
+            let moreTotal = panier.moreProductPrice(data)
+            $('#price').innerHTML = moreTotal
+            let idOfProduct = this.getAttribute('data-more')
+            let numberValue = $('.js-card-' + idOfProduct).innerHTML
+            let response = panier.moreQuantity(numberValue)
+            $('.js-card-' + idOfProduct).innerHTML = response
+        })
+    }
 }
 
-submitForm()
 
 
 

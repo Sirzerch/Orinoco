@@ -18,11 +18,11 @@ export default class Panier {
 
 	quantityProduct(data) {
 		let array = this.ids
-		
+
 		let findIndex = array.findIndex(prod => prod === `${data._id}`)
 		let find = array[findIndex]
-		
-		if(find) {
+
+		if (find) {
 			this.quantity++
 		}
 		else {
@@ -31,5 +31,30 @@ export default class Panier {
 			this.quantity++
 		}
 		return this.quantity
+	}
+
+	lessQuantity(numberValue) {
+		if (numberValue > 1) {
+			+numberValue--
+		}
+		else {
+			numberValue = 1
+		}
+		return numberValue
+	}
+
+	moreQuantity(numberValue) {
+		+numberValue++
+		return numberValue
+	}
+
+	lessProductPrice(data) {
+		this.total = this.total -= +`${data.price}`
+		return this.total
+	}
+
+	moreProductPrice(data) {
+		this.total = this.total += +`${data.price}`
+		return this.total
 	}
 }
