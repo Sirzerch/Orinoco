@@ -39,7 +39,7 @@ export default class CreatePage {
 		return firstDiv
 	}
 
-	create_page_panier(element_creator, data, panier) {
+	create_page_panier(element_creator, data) {
 		let array = this.ids
 		
 		let findIndex = array.findIndex(prod => prod === `${data._id}`)
@@ -62,10 +62,10 @@ export default class CreatePage {
 			}
 			//Fin
 			
-			//
+			//Boutons + et -
 			let btnsOfQuantity = []
-			let less = element_creator.createLink('quantity__less', '-', '#', 'data-less', `${data._id}`)
-			let more = element_creator.createLink('quantity__more', '+', '#', 'data-more', `${data._id}`)
+			let less = element_creator.createLink('quantity__less js-quantity', '-', '#', 'data-quantity', `less`, 'data-id', `${data._id}`)
+			let more = element_creator.createLink('quantity__more js-quantity', '+', '#', 'data-quantity', `more`, 'data-id', `${data._id}`)
 			btnsOfQuantity.push(less, more)
 
 			for(let btnOfQuantity of btnsOfQuantity) {
@@ -73,7 +73,7 @@ export default class CreatePage {
 			}
 			//fin
 			
-			//
+			//Code pour 1 produit
 			let items = []
 			let td1 = element_creator.createTd('w-25', 'data-tr', 'td')
 			let td2 = element_creator.createTd('align-middle', 'data-td', 'td', `${data.name}`)
@@ -89,14 +89,13 @@ export default class CreatePage {
 			let img = element_creator.createImg('img-fluid img-thumbnail', `${data.imageUrl}`, 'Appareil photo')
 			td1.appendChild(img)
 
-			let p = element_creator.createParagraphe(`card-text js-card-${data._id}`, 1)
+			let p = element_creator.createParagraphe(`card-text js-card-${data._id}`, 0)
 			td5.appendChild(p)
 			//Fin
 			return product
 		}
 		else {
-			let quantity = panier.quantityProduct(data)
-			return quantity
+			return null
 		}
 	}
 

@@ -1,7 +1,8 @@
 import CreateElement from '../utils/createElement.js'
 import Accueil from '../utils/createAccueil.js'
 import CreatePage from '../utils/createPage.js'
-import Panier from '../utils/createBasket.js'
+// import Panier from '../utils/createBasket.js'
+import Panier from '../utils/test.js'
 
 let $ = function (selector) {
     return document.querySelector(selector);
@@ -43,20 +44,17 @@ function setProduit(data) {
 }
 
 function setPanier(data) {
-    let div = page_creator.create_page_panier(element_creator, data, panier)
-    
-
-    if (typeof div == "number") {
-        $(`.js-card-${data._id}`).innerHTML = div
-    }
-    else {
+    let div = page_creator.create_page_panier(element_creator, data)
+    if (div !== null) {
         $('#panier').append(div)
     }
-    lessQuantity(data)
-    moreQuantity(data)
 
-    let total = panier.addProductPrice(data)
-    $('#price').innerHTML = total
+    panier.addProduct(data)
+
+    quantityProduct()
+    let product = panier.getBasketStorage()
+    $(`.js-card-${data._id}`).innerHTML = product.number
+    $('#price').innerHTML = product.total
 }
 
 //Mise en place des events listeners sur les liens de la page produit
@@ -171,36 +169,19 @@ form.addEventListener('submit', async function (e) {
     }
 })
 
-function lessQuantity(data) {
-    let lessAll = document.querySelectorAll('.quantity__less')
+function quantityProduct() {
+    let btnsOfQuantity = document.querySelectorAll('.js-quantity')
 
-    for (let less of lessAll) {
-        less.addEventListener('click', function (e) {
+    for (let btnOfQuantity of btnsOfQuantity) {
+        btnOfQuantity.addEventListener('click', function (e) {
             e.preventDefault()
-            let lessTotal = panier.lessProductPrice(data)
-            $('#price').innerHTML = lessTotal
-            let idOfProduct = this.getAttribute('data-less')
-            let numberValue = $('.js-card-' + idOfProduct).innerHTML
-            let response = panier.lessQuantity(numberValue)
-            $('.js-card-' + idOfProduct).innerHTML = response  
+            let operation = this.getAttribute('data-quantity')
+            let id = this.getAttribute('data-id')
+            panier.updateProductQuantity(id, operation)
         })
     }
 }
-function moreQuantity(data) {
-    let moreAll = document.querySelectorAll('.quantity__more')
 
-    for (let more of moreAll) {
-        more.addEventListener('click', function (e) {
-            e.preventDefault()
-            let moreTotal = panier.moreProductPrice(data)
-            $('#price').innerHTML = moreTotal
-            let idOfProduct = this.getAttribute('data-more')
-            let numberValue = $('.js-card-' + idOfProduct).innerHTML
-            let response = panier.moreQuantity(numberValue)
-            $('.js-card-' + idOfProduct).innerHTML = response
-        })
-    }
-}
 
 
 
