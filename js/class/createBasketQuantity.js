@@ -1,4 +1,4 @@
-export default class Panier {
+export default class createBasketQuantity {
 
 	constructor() {
 		this.total = 0
