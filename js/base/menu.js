@@ -1,3 +1,4 @@
+//Système d'onglets affichant le contenu de la page correspondant au "click" de l'utilisateur
 let pages = document.querySelectorAll('#pages .header__nav a')
 
 for(let page of pages) {

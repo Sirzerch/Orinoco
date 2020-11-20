@@ -20,6 +20,7 @@ document.querySelectorAll('.js-modal').forEach(a => {
     a.addEventListener('click', openModal)
 })
 
+//Ferme la modal avec le bouton "Escape"
 window.addEventListener('keydown', function(e) {
     if(e.key === "Escape" || e.key === "Esc") {
         closeModal(e)
