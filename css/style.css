@@ -213,8 +213,6 @@ img {
 }
 
 .card {
-  word-wrap: break-word;
-  background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-top: 20px solid white;
   border-bottom: 120px solid white;
@@ -230,7 +228,6 @@ img {
 }
 
 .card-body {
-  min-height: 1px;
   padding: 1.25rem;
   color: white;
 }
@@ -251,7 +248,7 @@ img {
 }
 
 .card-img {
-  width: 100%;
+  width: 25%;
 }
 
 .header {
@@ -407,10 +404,9 @@ img {
 }
 
 .col-md-8 {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 66.666667%;
-          flex: 0 0 66.666667%;
-  max-width: 66.666667%;
+  -webkit-box-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
 }
 
 h5 {

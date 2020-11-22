@@ -19,9 +19,9 @@ export default class createBasketQuantity {
 		let find = array[findIndex]
 
 		// si le produit est déjà présent dans l'attribut
-		if(find) {
+		if (find) {
 			find.number++
-		}else {
+		} else {
 			this.products.push(product)
 			product.id = `${data._id}`
 			product.price = `${data.price}`
@@ -29,13 +29,13 @@ export default class createBasketQuantity {
 		}
 		//MAJ du total
 		this.calculateTotal()
-		if(find) {
+		if (find) {
 			find.total = this.total
 		}
 		else {
-			product.total = this.total 
+			product.total = this.total
 		}
-		//Maj du storage
+		//MAJ du storage
 		this.setBasketStorage(find)
 
 		return this.products
@@ -49,18 +49,17 @@ export default class createBasketQuantity {
 		let findIndex = array.findIndex(prod => prod.id === id)
 		let find = array[findIndex]
 
-		for(find of this.products) {
-			if (operation == "more") {
-				find.number++
-				this.calculateTotal()
-				find.total = this.total 
-			} else {
-				find.number--
-				this.calculateTotal()
-				find.total = this.total 
-			}
-			this.setBasketStorage(find)
+		if (operation == "more") {
+			find.number++
+			this.calculateTotal()
+			find.total = this.total
+		} else {
+			find.number--
+			this.calculateTotal()
+			find.total = this.total
 		}
+		this.setBasketStorage(find)
+		return find
 	}
 
 	// calcul du prix total du panier
@@ -75,14 +74,16 @@ export default class createBasketQuantity {
 	// transposer l'objet panier en localStorage
 	setBasketStorage(find) {
 		//Si l'objet existe, le transpose dans le localStorage
-		if(find !== undefined) {
+		if (find !== undefined) {
 			let productStringify = JSON.stringify(find)
 			localStorage.setItem('product', productStringify)
 		}
-		//transpose le dernier objet du tableau dans le localStorage
-		for(let i = 0; i < this.products.length; i++){
-			let productStringify = JSON.stringify(this.products[i])
-			localStorage.setItem('product', productStringify)
+		else {
+			//transpose le dernier objet du tableau dans le localStorage
+			for (let i = 0; i < this.products.length; i++) {
+				let productStringify = JSON.stringify(this.products[i])
+				localStorage.setItem('product', productStringify)
+			}
 		}
 	}
 
