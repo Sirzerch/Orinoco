@@ -1,7 +1,5 @@
 //Cartes chaque produits
 .card {
-    word-wrap: break-word;
-    background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, .125);
     border-top: 20px solid white;
     border-bottom: 120px solid white;
@@ -14,7 +12,6 @@
     animation: progress-pages 1200ms ease-in-out;
 
     &-body {
-        min-height: 1px;
         padding: 1.25rem;
         color: $blanc;
 
@@ -32,6 +29,6 @@
     }
 
     &-img {
-        width: 100%;
+        width: 25%;
     }
 }
