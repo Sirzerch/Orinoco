@@ -72,7 +72,7 @@ function FormatPanier(data) {
         $('#panier').append(div)
     }
 
-    createBasketQuantity.addProduct(data)
+    console.log(createBasketQuantity.addProduct(data))
 
     quantityProduct()
     let product = createBasketQuantity.getBasketStorage()
@@ -112,12 +112,17 @@ function quantityProduct() {
     let btnsOfQuantity = document.querySelectorAll('.js-quantity')
 
     for (let btnOfQuantity of btnsOfQuantity) {
-        btnOfQuantity.addEventListener('click', function (e) {
+        let onClick = function (e) {
             e.preventDefault()
             let operation = this.getAttribute('data-quantity')
             let id = this.getAttribute('data-id')
-            createBasketQuantity.updateProductQuantity(id, operation)
-        })
+            console.log(createBasketQuantity.updateProductQuantity(id, operation))
+            let product = createBasketQuantity.getBasketStorage()
+            $(`.js-card-${id}`).innerHTML = product.number
+            $('#price').innerHTML = product.total
+            // btnOfQuantity.removeEventListener('click', onClick)
+        }
+        btnOfQuantity.addEventListener('click', onClick, false)
     }
 }
 
