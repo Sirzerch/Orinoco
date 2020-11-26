@@ -75,7 +75,6 @@ function FormatPanier(data) {
         quantityProduct(btnOfQuantity)
     }
 
-
     createBasketQuantity.addProduct(data)
 
     let product = createBasketQuantity.getBasketStorage()
@@ -118,7 +117,7 @@ function quantityProduct(btnOfQuantity) {
         if (e.target !== e.currentTarget) {
             let operation = e.target.getAttribute('data-quantity')
             let id = e.target.getAttribute('data-id')
-            console.log(createBasketQuantity.updateProductQuantity(id, operation))
+            createBasketQuantity.updateProductQuantity(id, operation)
             let product = createBasketQuantity.getBasketStorage()
             $(`.js-card-${id}`).innerHTML = product.number
             $('#price').innerHTML = product.total
@@ -149,26 +148,52 @@ async function getDataCommande(response) {
     }
 }
 
+function formError(error) {
+    if(error) {
+        document.getElementById('erreur').innerHTML = error
+    }
+    return error
+}
+
 //Envoie les données saisis du formulaire lors de l'event "click"
 let form = document.getElementById('inscription')
-form.addEventListener('submit', async function (e) {
+document.forms['inscription'].addEventListener('submit', async function (e) {
     e.preventDefault()
-    let products = createPage.allId()
-    let formData = new FormData(this)
-    let contact = {}
+    let inputs = this
+    let error
+    
 
-    for (let [key, value] of formData) {
-        contact[key] = value
+    if (/[0-9]/.test(inputs['firstName'].value)) {
+        error = 'Veuillez ne saisir que des lettres.'
+        inputs['firstName'].color
     }
 
-    let response = await fetch('http://localhost:3000/api/cameras/order', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ contact, products })
-    })
-    getDataCommande(response)
+    for (var i = 0; i < inputs.length; i++) {
+        if (!inputs[i].value) {
+            error = "Veuillez renseigner tous les champs";
+        }
+    }
+
+    if(error) {
+        document.getElementById('error').innerHTML = error
+    } else {
+        let products = createPage.allId()
+        let formData = new FormData(inputs)
+        let contact = {}
+    
+        for (let [key, value] of formData) {
+            contact[key] = value
+        }
+    
+        let response = await fetch('http://localhost:3000/api/cameras/order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ contact, products })
+        })
+        getDataCommande(response)
+    }
 })
 
 //Création du HTML des pages du site lors du chargement de l'ACCUEIL
