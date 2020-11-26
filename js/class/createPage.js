@@ -45,7 +45,7 @@ export default class CreatePage {
 		let select = this.createElement.createSelect('lentilles', 'id', 'lentilles')
 		let firstOption = this.createElement.createOption(`${data.lenses[0]}`, `${data.lenses}`)
 		let secondOption = this.createElement.createOption(`${data.lenses[1]}`, `${data.lenses}`)
-		let thirdOption = this.createElement.createOption(`${data.lenses[2]}`, `${data.lenses}`)
+		let thirdOption = this.createElement.createOption(`${data.lenses[2]}`, `${data.lenses}`)	
 		let a = this.createElement.createLink('btn btn-primary', 'Ajouter au panier +', '#', 'data-panier', `${data._id}`)
 
 		firstDiv.append(secondDiv)
@@ -60,8 +60,12 @@ export default class CreatePage {
 		thirdDiv.append(label)
 		thirdDiv.append(select)
 		select.append(firstOption)
-		select.append(secondOption)
-		select.append(thirdOption)
+		if(secondOption.innerHTML !== 'undefined') {
+			select.append(secondOption)
+		}
+		if(thirdOption.innerHTML !== 'undefined') {
+			select.append(thirdOption)
+		}
 
 		return firstDiv
 	}
@@ -77,7 +81,7 @@ export default class CreatePage {
 			array.push(`${data._id}`)
 
 			let tr = this.createElement.createTr('text-center', 'data-tr', 'tr')
-			let div = this.createElement.createDiv('quantity')
+			let div = this.createElement.createDiv(`quantity js-quantity-${data._id}`)
 			
 			//
 			let elementsOfPanier = []
@@ -92,8 +96,8 @@ export default class CreatePage {
 			
 			//Boutons + et -
 			let btnsOfQuantity = []
-			let less = this.createElement.createLink('quantity__less js-quantity', '-', '#', 'data-quantity', `less`, 'data-id', `${data._id}`)
-			let more = this.createElement.createLink('quantity__more js-quantity', '+', '#', 'data-quantity', `more`, 'data-id', `${data._id}`)
+			let less = this.createElement.createLink('quantity__less', '-', '#', 'data-quantity', `less`, 'data-id', `${data._id}`)
+			let more = this.createElement.createLink('quantity__more', '+', '#', 'data-quantity', `more`, 'data-id', `${data._id}`)
 			btnsOfQuantity.push(less, more)
 
 			for(let btnOfQuantity of btnsOfQuantity) {

@@ -1,3 +1,5 @@
+//Modal pour le formulaire 
+
 let modal = null
 
 const openModal = function(e) {

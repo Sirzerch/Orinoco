@@ -37,8 +37,6 @@ export default class createBasketQuantity {
 		}
 		//MAJ du storage
 		this.setBasketStorage(find)
-
-		return this.products
 	}
 
 	// MAJ la quantité
@@ -49,11 +47,11 @@ export default class createBasketQuantity {
 		let findIndex = array.findIndex(prod => prod.id === id)
 		let find = array[findIndex]
 
-		if (operation == "more") {
+		if(operation == "more") {
 			find.number++
 			this.calculateTotal()
 			find.total = this.total
-		} else {
+		} else if(find.number > 1){
 			find.number--
 			this.calculateTotal()
 			find.total = this.total
@@ -71,15 +69,15 @@ export default class createBasketQuantity {
 		}
 	}
 
-	// transposer l'objet panier en localStorage
+	//Construit l'objet panier pour le LocalStorage
 	setBasketStorage(find) {
-		//Si l'objet existe, le transpose dans le localStorage
+		//Si l'objet existe, l'envoie dans le localStorage
 		if (find !== undefined) {
 			let productStringify = JSON.stringify(find)
 			localStorage.setItem('product', productStringify)
 		}
 		else {
-			//transpose le dernier objet du tableau dans le localStorage
+			//Envoie le dernier objet du tableau dans le localStorage
 			for (let i = 0; i < this.products.length; i++) {
 				let productStringify = JSON.stringify(this.products[i])
 				localStorage.setItem('product', productStringify)
