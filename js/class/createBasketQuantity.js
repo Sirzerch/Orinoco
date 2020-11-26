@@ -47,11 +47,11 @@ export default class createBasketQuantity {
 		let findIndex = array.findIndex(prod => prod.id === id)
 		let find = array[findIndex]
 
-		if (operation == "more") {
+		if(operation == "more") {
 			find.number++
 			this.calculateTotal()
 			find.total = this.total
-		} else {
+		} else if(find.number > 1){
 			find.number--
 			this.calculateTotal()
 			find.total = this.total
