@@ -45,7 +45,7 @@ export default class CreatePage {
 		let select = this.createElement.createSelect('lentilles', 'id', 'lentilles')
 		let firstOption = this.createElement.createOption(`${data.lenses[0]}`, `${data.lenses}`)
 		let secondOption = this.createElement.createOption(`${data.lenses[1]}`, `${data.lenses}`)
-		let thirdOption = this.createElement.createOption(`${data.lenses[2]}`, `${data.lenses}`)
+		let thirdOption = this.createElement.createOption(`${data.lenses[2]}`, `${data.lenses}`)	
 		let a = this.createElement.createLink('btn btn-primary', 'Ajouter au panier +', '#', 'data-panier', `${data._id}`)
 
 		firstDiv.append(secondDiv)
@@ -60,8 +60,12 @@ export default class CreatePage {
 		thirdDiv.append(label)
 		thirdDiv.append(select)
 		select.append(firstOption)
-		select.append(secondOption)
-		select.append(thirdOption)
+		if(secondOption.innerHTML !== 'undefined') {
+			select.append(secondOption)
+		}
+		if(thirdOption.innerHTML !== 'undefined') {
+			select.append(thirdOption)
+		}
 
 		return firstDiv
 	}

@@ -35,8 +35,16 @@ async function getDataAccueil() {
 function formatProduit(data) {
     let tr = createPage.createProductOfProduct(data)
     $('#produit').append(tr)
+    
+    // let options = document.querySelectorAll('option')
 
-    let a = document.querySelector('#produit a')
+    // for(let option of options) {
+    //     if(option.innerHTML === 'undefined') {
+    //         option.innerHTML = null
+    //     }
+    
+    // }
+    let a = $('#produit a')
 
     getDataPanier(a)
 }
