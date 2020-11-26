@@ -148,28 +148,19 @@ async function getDataCommande(response) {
     }
 }
 
-function formError(error) {
-    if(error) {
-        document.getElementById('erreur').innerHTML = error
-    }
-    return error
-}
-
 //Envoie les données saisis du formulaire lors de l'event "click"
-let form = document.getElementById('inscription')
 document.forms['inscription'].addEventListener('submit', async function (e) {
     e.preventDefault()
     let inputs = this
     let error
     
-
-    if (/[0-9]/.test(inputs['firstName'].value)) {
+    //Si le firstName oue le secondName contient un chiffre alors il y a une erreur 
+    if(/[0-9]/.test(inputs['firstName'].value) || /[0-9]/.test(inputs['lastName'].value)) {
         error = 'Veuillez ne saisir que des lettres.'
-        inputs['firstName'].color
     }
 
-    for (var i = 0; i < inputs.length; i++) {
-        if (!inputs[i].value) {
+    for(var i = 0; i < inputs.length; i++) {
+        if(!inputs[i].value) {
             error = "Veuillez renseigner tous les champs";
         }
     }
