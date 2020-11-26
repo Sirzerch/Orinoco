@@ -23,7 +23,7 @@ function formatAccueil(data) {
         list.appendChild(tr)
     }
 }
-//Récupérer les données de l'API pour la page ACCUEIL
+//Réalise un appel API pour créer la page ACCUEIL
 async function getDataAccueil() {
     let response = await fetch(url)
     let data = await response.json()
@@ -41,7 +41,7 @@ function formatProduit(data) {
     getDataPanier(a)
 }
 
-//Récupère les données de l'API lors de l'event "click" pour la page PRODUIT
+//Récupère l'id du produit lors de l'event "click" puis réalise un appel API pour créer la page PRODUIT
 function getDataProduit(links) {
     for (let link of links) {
         link.addEventListener('click', async function () {
@@ -68,19 +68,23 @@ function getDataProduit(links) {
 //Formate la page PANIER
 function FormatPanier(data) {
     let div = createPage.createProductOfBasket(data)
+    let btnOfQuantity = null
     if (div !== null) {
         $('#panier').append(div)
+        btnOfQuantity = document.querySelector(`.js-quantity-${data._id}`)
+        quantityProduct(btnOfQuantity)
     }
 
-    console.log(createBasketQuantity.addProduct(data))
 
-    quantityProduct()
+    createBasketQuantity.addProduct(data)
+
     let product = createBasketQuantity.getBasketStorage()
     $(`.js-card-${data._id}`).innerHTML = product.number
     $('#price').innerHTML = product.total
+
 }
 
-//Récupère les données de l'API lors de l'event "click" pour la page PANIER
+//Récupère l'id du produit lors de l'event "click" puis réalise un appel API pour créer la page PANIER
 function getDataPanier(a) {
     a.addEventListener('click', async function (e) {
         e.stopPropagation()
@@ -103,30 +107,27 @@ function getDataPanier(a) {
         let response = await fetch(url)
         let data = await response.json()
         let panier = await FormatPanier(data)
-        return panier
     });
 }
 
-//Diminue ou augmente la quantité du produit lors de l'event "click" des boutons "+" ou "-"
-function quantityProduct() {
-    let btnsOfQuantity = document.querySelectorAll('.js-quantity')
-
-    for (let btnOfQuantity of btnsOfQuantity) {
-        let onClick = function (e) {
-            e.preventDefault()
-            let operation = this.getAttribute('data-quantity')
-            let id = this.getAttribute('data-id')
+//Diminue ou augmente la quantité du produit sélectionné lors de l'event "click"
+function quantityProduct(btnOfQuantity) {
+    btnOfQuantity.addEventListener('click', function (e) {
+        e.preventDefault()
+        e.stopPropagation()
+        if (e.target !== e.currentTarget) {
+            let operation = e.target.getAttribute('data-quantity')
+            let id = e.target.getAttribute('data-id')
             console.log(createBasketQuantity.updateProductQuantity(id, operation))
             let product = createBasketQuantity.getBasketStorage()
             $(`.js-card-${id}`).innerHTML = product.number
             $('#price').innerHTML = product.total
-            // btnOfQuantity.removeEventListener('click', onClick)
         }
-        btnOfQuantity.addEventListener('click', onClick, false)
-    }
+    })
 }
 
-//Récupère les données du formulaire, si la response a le statut 200, et créer la page COMMANDE
+
+//Si la response a le statut 200, récupère les données du formulaire pour créer la page COMMANDE
 async function getDataCommande(response) {
     if (response.ok) {
         let responseData = await response.json()

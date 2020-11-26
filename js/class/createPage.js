@@ -77,7 +77,7 @@ export default class CreatePage {
 			array.push(`${data._id}`)
 
 			let tr = this.createElement.createTr('text-center', 'data-tr', 'tr')
-			let div = this.createElement.createDiv('quantity')
+			let div = this.createElement.createDiv(`quantity js-quantity-${data._id}`)
 			
 			//
 			let elementsOfPanier = []
@@ -92,8 +92,8 @@ export default class CreatePage {
 			
 			//Boutons + et -
 			let btnsOfQuantity = []
-			let less = this.createElement.createLink('quantity__less js-quantity', '-', '#', 'data-quantity', `less`, 'data-id', `${data._id}`)
-			let more = this.createElement.createLink('quantity__more js-quantity', '+', '#', 'data-quantity', `more`, 'data-id', `${data._id}`)
+			let less = this.createElement.createLink('quantity__less', '-', '#', 'data-quantity', `less`, 'data-id', `${data._id}`)
+			let more = this.createElement.createLink('quantity__more', '+', '#', 'data-quantity', `more`, 'data-id', `${data._id}`)
 			btnsOfQuantity.push(less, more)
 
 			for(let btnOfQuantity of btnsOfQuantity) {
