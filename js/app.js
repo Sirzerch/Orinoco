@@ -37,14 +37,6 @@ function formatProduit(data) {
     let tr = createPage.createProductOfProduct(data)
     $('#produit').append(tr)
     
-    // let options = document.querySelectorAll('option')
-
-    // for(let option of options) {
-    //     if(option.innerHTML === 'undefined') {
-    //         option.innerHTML = null
-    //     }
-    
-    // }
     let a = $('#produit a')
 
     getDataPanier(a)
@@ -101,8 +93,8 @@ function getDataPanier(a) {
         let getItem = localStorage.getItem('ids')
 
         let page = document.getElementsByTagName('a')
-        let pageProduit = page[2]
-        pageProduit.click()
+        let pagePanier = page[2]
+        pagePanier.click()
 
         let panierVide = document.querySelectorAll('#panier p.text-center--white')
 
@@ -144,11 +136,9 @@ async function getDataCommande(response) {
         let pageProduit = page[3]
         pageProduit.click()
 
-        let panierVide = document.querySelectorAll('#commande p.text-center--white')
+        document.querySelectorAll('#commande p.text-center--white')
 
-        if (panierVide.length == 1) {
-            $('#commande').innerHTML = ''
-        }
+        $('#commande').innerHTML = ''
 
         let total = $('#price').innerHTML
 
