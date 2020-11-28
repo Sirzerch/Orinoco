@@ -72,11 +72,31 @@
                             <button class="js-modal-close">Fermer</button>
                         </div>
                         <form id="inscription" class="modal__form">
-                            <input type="text" name="firstName" placeholder="Prénom"><br />
-                            <input type="text" name="lastName" placeholder="Nom"><br />
-                            <input type="text" name="address" placeholder="Adresse"><br />
-                            <input type="text" name="city" placeholder="Ville"><br />
-                            <input type="email" name="email" placeholder="Email"><br />
+                            <div class="modal__form-group">
+                                <label for="firstName">Prénom</label>
+                                <input type="text" name="firstName" placeholder="Prénom">
+                                <small></small>
+                            </div>
+                            <div class="modal__form-group">
+                                <label for="lastName">Nom</label>
+                                <input type="text" name="lastName" placeholder="Nom" >
+                                <small></small>
+                            </div>
+                            <div class="modal__form-group">
+                                <label for="adresse">Adresse</label>
+                                <input type="text" name="address" placeholder="Adresse">
+                                <small></small>
+                            </div>
+                            <div class="modal__form-group">
+                                <label for="city">Ville</label>
+                                <input type="text" name="city" placeholder="Ville">
+                                <small></small>
+                            </div>
+                            <div class="modal__form-group">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" placeholder="Email">
+                                <small></small>
+                            </div>   
                             <input type="submit" value="Valider">
                         </form>
                         <p id="error"></p>

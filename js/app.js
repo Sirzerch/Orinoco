@@ -146,14 +146,38 @@ async function getDataCommande(response) {
     }
 }
 
+
+let form = $('#inscription')
+
+form.firstName.addEventListener('input', function () {
+    let small = this.nextElementSibling
+
+    if(!/[0-9]/.test(this.value)) {
+        small.innerHTML = 'Valide'
+    } else {
+        small.innerHTML = 'Non Valide'
+    }
+})
+form.lastName.addEventListener('input', function () {
+    let small = this.nextElementSibling
+
+    if(!/[0-9]/.test(this.value)) {
+        small.innerHTML = 'Valide'
+    } else {
+        small.innerHTML = 'Non Valide'
+    }
+})
+
 //Envoie les données saisis du formulaire lors de l'event "click"
 document.forms['inscription'].addEventListener('submit', async function (e) {
     e.preventDefault()
     let inputs = this
     let error
+    let testFirstName = /[0-9]/.test(inputs['firstName'].value)
+    let testLastName = /[0-9]/.test(inputs['lastName'].value)
     
     //Si le firstName oue le secondName contient un chiffre alors il y a une erreur 
-    if(/[0-9]/.test(inputs['firstName'].value) || /[0-9]/.test(inputs['lastName'].value)) {
+    if(testFirstName || testLastName) {
         error = 'Veuillez ne saisir que des lettres.'
     }
 

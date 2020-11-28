@@ -29,6 +29,7 @@ window.addEventListener('keydown', function (e) {
     }
 })
 
+//Ferme la modal si la page Panier n'est pas active
 const pageActive = function () {
     let i = document.querySelectorAll('#pages .header__nav a')
 
