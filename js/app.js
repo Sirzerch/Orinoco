@@ -41,7 +41,7 @@ function formatProduit(data) {
     getDataPanier(a)
 }
 
-//Récupère l'id du produit lors de l'event "click" puis réalise un appel API pour créer la page PRODUIT
+//Récupère l'identifiant du produit lors de l'événement "click" puis réalise un appel API pour créer la page PRODUIT
 function getDataProduit(links) {
     for (let link of links) {
         link.addEventListener('click', async function () {
@@ -146,51 +146,25 @@ async function getDataCommande(response) {
     }
 }
 
-
-let form = $('#inscription')
-
-form.firstName.addEventListener('input', function () {
-    let small = this.nextElementSibling
-
-    if(!/[0-9]/.test(this.value)) {
-        small.innerHTML = 'Valide'
-    } else {
-        small.innerHTML = 'Non Valide'
-    }
-})
-form.lastName.addEventListener('input', function () {
-    let small = this.nextElementSibling
-
-    if(!/[0-9]/.test(this.value)) {
-        small.innerHTML = 'Valide'
-    } else {
-        small.innerHTML = 'Non Valide'
-    }
-})
-
-//Envoie les données saisis du formulaire lors de l'event "click"
+//Envoie les données saisis du formulaire lors de l'événement "click"
 document.forms['inscription'].addEventListener('submit', async function (e) {
     e.preventDefault()
     let inputs = this
     let error
-    let testFirstName = /[0-9]/.test(inputs['firstName'].value)
-    let testLastName = /[0-9]/.test(inputs['lastName'].value)
-    
-    //Si le firstName oue le secondName contient un chiffre alors il y a une erreur 
-    if(testFirstName || testLastName) {
-        error = 'Veuillez ne saisir que des lettres.'
-    }
 
+    //Si tous les champs du formulaire ne sont pas remplie, une notification est envoyer
     for(var i = 0; i < inputs.length; i++) {
         if(!inputs[i].value) {
             error = "Veuillez renseigner tous les champs";
         }
     }
 
+    //S'il y a une erreur dans le formulaire, ne le soumet pas
     if(error) {
-        document.getElementById('error').innerHTML = error
-    } else {
-        let products = createPage.allId()
+        document.getElementById('js-error').innerHTML = error
+    }//Sinon soumet le formulaire 
+    else {
+        let products = createPage.allId()//ATTENTION 
         let formData = new FormData(inputs)
         let contact = {}
     

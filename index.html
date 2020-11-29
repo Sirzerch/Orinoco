@@ -12,7 +12,9 @@
     <!--Pages de Orinoco-->
     <div id="pages">
         <header class="header">
+            <!--Titre du header et du site-->
             <div class="header__title">
+                <!--Icon du site-->
                 <div class="icon">
                     <div class="icon__circle"></div>
                     <div class="icon__flash"></div>
@@ -23,19 +25,24 @@
             <nav class="header__nav">
                 <ul>
                     <li>
+                        <!--Lien de navigation Accueil-->
                         <a class="nav-link active" data-pages="0" href="#"><span>01.</span>Accueil</a>
                     </li>
                     <li>
+                        <!--Lien de navigation Produit-->
                         <a class="nav-link" data-pages="1" href="#"><span>02.</span>Produits</a>
                     </li>
                     <li>
+                        <!-- Lien de navigation Panier-->
                         <a class="nav-link" data-pages="2" href="#"><span>03.</span>Panier</a>
                     </li>
                     <li>
+                        <!--Lien de navigation Commande-->
                         <a class="nav-link" data-pages="3" href="#"><span>04.</span>Commande</a>
                     </li>
                 </ul>
             </nav>
+            <!--Icon sous la barre de Navigation-->
             <div class="icon--bar"></div>
         </header>
 
@@ -43,6 +50,7 @@
         <div class="active" id="page0">
             <div class="table mt-3 mb-2">
                 <table id="listedesproduits">
+                    <!--Affichage du contenu de la page lorsque l'utilisateur 'click' sur le lien correspondant dans la barre de navigation-->
                 </table>
             </div>
         </div>
@@ -50,6 +58,7 @@
         <div id="page1">
             <div class="card">
                 <div id="produit">
+                    <!--Affichage du contenu de la page lorsque l'utilisateur 'click' sur le lien correspondant dans la barre de navigation-->
                 </div>
             </div>
         </div>
@@ -57,6 +66,7 @@
         <div id="page2">
             <div class="table">
                 <div id="panier">
+                    <!--Affichage du contenu de la page lorsque l'utilisateur 'click' sur le lien correspondant dans la barre de navigation-->
                 </div>
                 <!--Bouton de commande pour accéder au formulaire-->
                 <div class="total js-commande">
@@ -71,15 +81,18 @@
                             <h1>Formulaire de commande</h1>
                             <button class="js-modal-close">Fermer</button>
                         </div>
+                        <!--Formulaire contenu dans la modal-->
                         <form id="inscription" class="modal__form">
+                            <!--Englobe chaque champ du formulaire-->
                             <div class="modal__form-group">
                                 <label for="firstName">Prénom</label>
                                 <input type="text" name="firstName" placeholder="Prénom">
+                                <!--Balise gérer en js permettant de valider ou non le champ-->
                                 <small></small>
                             </div>
                             <div class="modal__form-group">
                                 <label for="lastName">Nom</label>
-                                <input type="text" name="lastName" placeholder="Nom" >
+                                <input type="text" name="lastName" placeholder="Nom">
                                 <small></small>
                             </div>
                             <div class="modal__form-group">
@@ -96,24 +109,29 @@
                                 <label for="email">Email</label>
                                 <input type="email" name="email" placeholder="Email">
                                 <small></small>
-                            </div>   
+                            </div>
                             <input type="submit" value="Valider">
                         </form>
-                        <p id="error"></p>
+                        <!--"Error" est gérer en js pour controler que tous les champs ont bien été rempli avant l'envoie du formulaire-->
+                        <p id="js-error"></p>
                     </div>
                 </aside>
             </div>
         </div>
+        <!--Page Commande-->
         <div id="page3">
             <div class="card">
                 <div id="commande">
+                    <!--Affichage du contenu de la page lorsque l'utilisateur 'click' sur le lien correspondant dans la barre de navigation-->
                 </div>
             </div>
         </div>
     </div>
 
+    <!--Scripts-->
     <script src="js/base/menu.js"></script>
     <script src="js/base/modal.js"></script>
+    <script src="js/base/formField.js"></script>
     <script type="module" src="js/app.js"></script>
 </body>
 

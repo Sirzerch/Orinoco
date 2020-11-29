@@ -38,3 +38,11 @@
         }
     }
 }
+.text {
+    &-danger {
+        color: $danger
+    }
+    &-success {
+        color: $success;
+    }
+}

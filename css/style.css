@@ -115,6 +115,14 @@ img {
   margin-top: 5px;
 }
 
+.text-danger {
+  color: red;
+}
+
+.text-success {
+  color: green;
+}
+
 .btn {
   padding: .375rem .75rem;
   border-radius: .25rem;
