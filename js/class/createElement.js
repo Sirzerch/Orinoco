@@ -4,13 +4,13 @@ export default class CreateElement {
     }
 
     createTr(className, firstSetAttributeName, firstSetAttributeValue) {
-        let tr = document.createElement('tr')
+        let tr = document.createElement('div')
         tr.className = className
         tr.setAttribute(firstSetAttributeName, firstSetAttributeValue)
         return tr
     }
     createTd(className, firstSetAttributeName, firstSetAttributeValue, innerHTML = null) {
-        let td = document.createElement('td')
+        let td = document.createElement('div')
         td.className = className
         td.setAttribute(firstSetAttributeName, firstSetAttributeValue)
         if(innerHTML != null) {
