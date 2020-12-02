@@ -3,7 +3,7 @@
     background: $primary;
     opacity: 0;
     animation: fondu 1000ms 1000ms forwards;
-    border-collapse: collapse;
+    color: $blanc;
 }
 
 .table {
@@ -27,11 +27,16 @@
 
 .text-center {
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem;
 }
 
 .w-25 {
     width: 25%;
 }
+
 
 .img-thumbnail {
     padding: 0.25rem;
@@ -39,9 +44,27 @@
     border: 1px solid #dee2e6;
     border-radius: 0.25rem;
     max-width: 100%;
-    height: auto;
 }
 
 .align-middle {
-    vertical-align: middle;
+    margin: 10px;
+}
+
+
+@media all and (max-width: 920px) {
+    .text-center {
+        text-align: center;
+        display: block;
+        padding-bottom: 30px;
+    }
+
+    .img-thumbnail {
+        margin: 0.5rem -0.5rem;
+    }
+
+    .w-25 {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
 }

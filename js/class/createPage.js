@@ -21,7 +21,7 @@ export default class CreatePage {
             tr.appendChild(item)
         }
 
-        let img = this.createElement.createImg('img-fluid img-thumbnail', `${cam.imageUrl}`, 'Appareil photo')
+        let img = this.createElement.createImg('img-thumbnail', `${cam.imageUrl}`, 'Appareil photo')
         td1.appendChild(img)
 
         let a = this.createElement.createLink('btn btn-primary', 'Détails', '#', 'data-button', `${cam._id}`)
@@ -32,12 +32,13 @@ export default class CreatePage {
 
 	//Crée et formate l'HTML d'un produit de la page PRODUIT
 	createProductOfProduct(data) {
-		let firstDiv = this.createElement.createDiv('row no-gutters')
+		// let firstDiv = this.createElement.createDiv('row no-gutters')
 		let secondDiv = this.createElement.createDiv('col-md-4')
-		let img = this.createElement.createImg('card-img', `${data.imageUrl}`, 'Appareil photo')
+		let thirdDiv = this.createElement.createDiv('w-50')
+		let img = this.createElement.createImg('img-thumbnail', `${data.imageUrl}`, 'Appareil photo')
 		let secondDivBis = this.createElement.createDiv('col-md-8')
-		let thirdDiv = this.createElement.createDiv('card-body')
-		let fourthDiv = this.createElement.createDiv('card-body--title')
+		let fourthDiv = this.createElement.createDiv('card-body')
+		let fifthDiv = this.createElement.createDiv('card-body--title')
 		let h5 = this.createElement.createTitle('card-title', `${data.name}`)
 		let firstP = this.createElement.createParagraphe('card-text', `${data.price}£`)
 		let secondP = this.createElement.createParagraphe('card-text', `${data.description}`)
@@ -48,17 +49,18 @@ export default class CreatePage {
 		let thirdOption = this.createElement.createOption(`${data.lenses[2]}`, `${data.lenses}`)	
 		let a = this.createElement.createLink('btn btn-primary', 'Ajouter au panier +', '#', 'data-panier', `${data._id}`)
 
-		firstDiv.append(secondDiv)
-		secondDiv.append(img)
+		// firstDiv.append(secondDiv)
+		secondDiv.append(thirdDiv)
+		thirdDiv.append(img)
 		secondDiv.append(secondDivBis)
-		secondDivBis.append(thirdDiv)
-		thirdDiv.append(fourthDiv)
-		fourthDiv.append(h5)
-		fourthDiv.append(a)
-		thirdDiv.append(firstP)
-		thirdDiv.append(secondP)
-		thirdDiv.append(label)
-		thirdDiv.append(select)
+		secondDivBis.append(fourthDiv)
+		fourthDiv.append(fifthDiv)
+		fifthDiv.append(h5)
+		fifthDiv.append(a)
+		fourthDiv.append(firstP)
+		fourthDiv.append(secondP)
+		fourthDiv.append(label)
+		fourthDiv.append(select)
 		select.append(firstOption)
 		if(secondOption.innerHTML !== 'undefined') {
 			select.append(secondOption)
@@ -67,7 +69,7 @@ export default class CreatePage {
 			select.append(thirdOption)
 		}
 
-		return firstDiv
+		return secondDiv
 	}
 
 	//Crée et formate l'HTML d'un produit de la page PANIER
@@ -81,29 +83,11 @@ export default class CreatePage {
 			array.push(`${data._id}`)
 
 			let tr = this.createElement.createTr('text-center', 'data-tr', 'tr')
-			let div = this.createElement.createDiv(`quantity js-quantity-${data._id}`)
+			let product = this.createElement.createDiv('product')
+
+			product.append(tr)
 			
-			//
-			let elementsOfPanier = []
-			elementsOfPanier.push(tr, div)
-
-			let product = this.createElement.createTr('product')
-
-			for(let elementOfPanier of elementsOfPanier) {
-				product.append(elementOfPanier)
-			}
 			//Fin
-			
-			//Boutons + et -
-			let btnsOfQuantity = []
-			let less = this.createElement.createLink('quantity__less', '-', '#', 'data-quantity', `less`, 'data-id', `${data._id}`)
-			let more = this.createElement.createLink('quantity__more', '+', '#', 'data-quantity', `more`, 'data-id', `${data._id}`)
-			btnsOfQuantity.push(less, more)
-
-			for(let btnOfQuantity of btnsOfQuantity) {
-				div.append(btnOfQuantity)
-			}
-			//fin
 			
 			//Code pour 1 produit
 			let items = []
@@ -124,6 +108,21 @@ export default class CreatePage {
 			let p = this.createElement.createParagraphe(`card-text js-card-${data._id}`, 0)
 			td5.appendChild(p)
 			//Fin
+			
+			let div = this.createElement.createDiv(`quantity js-quantity-${data._id}`)
+			tr.append(div)
+
+			//Boutons + et -
+			let btnsOfQuantity = []
+			let less = this.createElement.createLink('quantity__less', '-', '#', 'data-quantity', `less`, 'data-id', `${data._id}`)
+			let more = this.createElement.createLink('quantity__more', '+', '#', 'data-quantity', `more`, 'data-id', `${data._id}`)
+			btnsOfQuantity.push(less, more)
+
+			for(let btnOfQuantity of btnsOfQuantity) {
+				div.append(btnOfQuantity)
+			}
+			//fin
+
 			return product
 		}
 		else {

@@ -187,6 +187,13 @@ img {
   text-decoration: none;
 }
 
+@media all and (max-width: 920px) {
+  .commande {
+    bottom: -6rem;
+    right: auto;
+  }
+}
+
 .icon {
   background-color: #5c3710;
   width: 60px;
@@ -360,7 +367,7 @@ img {
   opacity: 0;
   -webkit-animation: fondu 1000ms 1000ms forwards;
           animation: fondu 1000ms 1000ms forwards;
-  border-collapse: collapse;
+  color: white;
 }
 
 .table {
@@ -386,6 +393,15 @@ img {
 
 .text-center {
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 1rem;
 }
 
 .w-25 {
@@ -398,11 +414,26 @@ img {
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
-  height: auto;
 }
 
 .align-middle {
-  vertical-align: middle;
+  margin: 10px;
+}
+
+@media all and (max-width: 920px) {
+  .text-center {
+    text-align: center;
+    display: block;
+    padding-bottom: 30px;
+  }
+  .img-thumbnail {
+    margin: 0.5rem -0.5rem;
+  }
+  .w-25 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
 }
 
 #produit {
@@ -433,6 +464,11 @@ h5 {
   margin-bottom: .75rem;
 }
 
+.w-50 {
+  width: 50%;
+  padding: 1.25rem;
+}
+
 .text-center--white {
   color: white;
   display: -webkit-box;
@@ -448,12 +484,24 @@ h5 {
   margin: 0;
 }
 
+@media all and (max-width: 920px) {
+  .col-md-4 {
+    display: block;
+  }
+  .w-50 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    padding: 0.75rem;
+  }
+}
+
 #panier {
   background: #5c3710;
   opacity: 0;
   -webkit-animation: fondu 1000ms 1000ms forwards;
           animation: fondu 1000ms 1000ms forwards;
-  position: relative;
+  color: white;
 }
 
 #commande {
@@ -480,12 +528,16 @@ h5 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding-top: 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
 }
 
 .quantity__less {
   color: white;
   text-decoration: none;
-  margin: 0;
   border-radius: 100%;
   padding: 0 5px 0 5px;
   -webkit-box-shadow: 1px 1px #e0a800, 1px 0px 30px 0px black;
@@ -504,7 +556,6 @@ h5 {
 .quantity__more {
   color: white;
   text-decoration: none;
-  margin: 0;
   border-radius: 100%;
   padding: 0 4px 0 4px;
   -webkit-box-shadow: 1px 1px #e0a800, 1px 0px 30px 0px black;
@@ -518,5 +569,14 @@ h5 {
   margin: 0 8px 8px 10px;
   -webkit-transition: ease-in-out 100ms;
   transition: ease-in-out 100ms;
+}
+
+@media all and (max-width: 920px) {
+  .quantity {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 /*# sourceMappingURL=style.css.map */

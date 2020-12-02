@@ -1,0 +1,10 @@
+@media all and (min-width: 920px) {
+  .text-center {
+    text-align: center;
+    display: none;
+  }
+  .col-md-4 {
+    display: none;
+  }
+}
+/*# sourceMappingURL=responsive.css.map */
