@@ -32,3 +32,9 @@
         width: 25%;
     }
 }
+
+@media all and (max-width: 920px) {
+    .card-body {
+        padding: 0.375rem;
+    }
+}

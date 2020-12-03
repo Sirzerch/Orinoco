@@ -22,28 +22,38 @@
                 <p>rinoco</p>
             </div>
             <!--Barre de navigation-->
-            <nav class="header__nav">
-                <ul>
-                    <li>
-                        <!--Lien de navigation Accueil-->
-                        <a class="nav-link active" data-pages="0" href="#"><span>01.</span>Accueil</a>
-                    </li>
-                    <li>
-                        <!--Lien de navigation Produit-->
-                        <a class="nav-link" data-pages="1" href="#"><span>02.</span>Produits</a>
-                    </li>
-                    <li>
-                        <!-- Lien de navigation Panier-->
-                        <a class="nav-link" data-pages="2" href="#"><span>03.</span>Panier</a>
-                    </li>
-                    <li>
-                        <!--Lien de navigation Commande-->
-                        <a class="nav-link" data-pages="3" href="#"><span>04.</span>Commande</a>
-                    </li>
-                </ul>
-            </nav>
+            <div id="js-header__nav">
+                <nav class="header__nav">
+                    <ul>
+                        <li>
+                            <!--Lien de navigation Accueil-->
+                            <a class="nav-link active" data-pages="0" href="#"><span>01.</span>Accueil</a>
+                        </li>
+                        <li>
+                            <!--Lien de navigation Produit-->
+                            <a class="nav-link" data-pages="1" href="#"><span>02.</span>Produits</a>
+                        </li>
+                        <li>
+                            <!-- Lien de navigation Panier-->
+                            <a class="nav-link" data-pages="2" href="#"><span>03.</span>Panier</a>
+                        </li>
+                        <li>
+                            <!--Lien de navigation Commande-->
+                            <a class="nav-link" data-pages="3" href="#"><span>04.</span>Commande</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
             <!--Icon sous la barre de Navigation-->
             <div class="icon--bar"></div>
+            <!--Icon burger, menu responsive et sidebar-->
+            <div id="burger-menu">
+                <button class="burger-button" id="js-burger-button">&#9776;</button>
+                <div class="burger-sidebar">
+                    <div class="burger-sidebar-body" id="js-burger-sidebar-body"></div>
+                </div>
+                <div class="burger-overlay" id="js-burger-overlay"></div>
+            </div>
         </header>
 
         <!-- Page Accueil-->
