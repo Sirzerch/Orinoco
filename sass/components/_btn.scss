@@ -2,12 +2,12 @@
     padding: .375rem .75rem;
     border-radius: .25rem;
     text-decoration: none;
-    
+
     &-primary {
         color: $blanc;
         box-shadow: 3px 3px $warning, -10px -10px 80px 0px $secondary;
         margin: 0 3px 3px 0;
-        
+
         &:hover {
             margin: 0;
             box-shadow: none;
@@ -18,8 +18,47 @@
     &:not(:disabled):not(.disabled) {
         cursor: pointer;
     }
-    
+
 }
+
+.burger {
+    &-button {
+        display: none;
+        cursor: pointer;
+        padding: 0;
+        vertical-align: top;
+        margin-right: 30px;
+        position: absolute;
+        right: 0;
+        bottom: 2.375rem;
+        top: auto;
+        z-index: 9999;
+    }
+
+    &-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    &-sidebar {
+        display: none;
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+        height: 100%;
+        top: 85px;
+        left: calc(100% - 10rem);
+        background: $primary;
+        transform: translateX(100%);
+        transition: transform .2s ease-out;
+    }
+}
+
 .total {
     position: absolute;
     bottom: -3rem;
@@ -60,5 +99,18 @@
     .commande {
         bottom: -6rem;
         right: auto;
+    }
+}
+
+@media all and (max-width: 750px) {
+
+    .burger-button,
+    .burger-sidebar,
+    .burger-activated .burger-overlay {
+        display: block;
+    }
+
+    .burger-activated .burger-sidebar {
+        transform: translateX(0);
     }
 }

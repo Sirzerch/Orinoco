@@ -58,10 +58,29 @@
         display: flex;
         margin-right: 20px;
         font-size: 45px;
-        margin: 20px 20px 0px 20px;
+        margin: 20px;
 
         & p {
             margin: 0;
+        }
+    }
+}
+
+@media all and (max-width: 750px) {
+    #js-header__nav {
+        display: none;
+    }
+    .header__nav {
+        & a {
+            color: $blanc;
+
+            &.active {
+                background: $warning;
+                color: $primary;
+            }
+        }
+        & ul {
+            display: block;
         }
     }
 }
