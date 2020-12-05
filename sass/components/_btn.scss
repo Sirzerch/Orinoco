@@ -24,15 +24,57 @@
 .burger {
     &-button {
         display: none;
+        width: 40px;
+        height: 30px;
         cursor: pointer;
-        padding: 0;
-        vertical-align: top;
-        margin-right: 30px;
-        position: absolute;
-        right: 0;
-        bottom: 2.375rem;
-        top: auto;
         z-index: 9999;
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+
+        & span {
+            width: 100%;
+            height: 4px;
+            background: $primary;
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: background-color 0.2s ease-in-out;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                background-color: $primary;
+                transition: transform 0.5s ease-in-out;
+            }
+
+            &::before {
+                transform: translateY(-10px);
+            }
+
+            &::after {
+                transform: translateY(10px);
+            }
+        }
+
+        &.actived span {
+            background-color: transparent;
+
+            &::before {
+                transform: translateY(0) rotateZ(45deg);
+                background: $warning;
+            }
+
+            &::after {
+                transform: translateY(0) rotateZ(-45deg);
+                background: $warning;
+            }
+        }
     }
 
     &-overlay {
