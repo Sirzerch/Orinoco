@@ -150,15 +150,66 @@ img {
 
 .burger-button {
   display: none;
+  width: 40px;
+  height: 30px;
   cursor: pointer;
-  padding: 0;
-  vertical-align: top;
-  margin-right: 30px;
-  position: absolute;
-  right: 0;
-  bottom: 2.375rem;
-  top: auto;
   z-index: 9999;
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.burger-button span {
+  width: 100%;
+  height: 4px;
+  background: #5c3710;
+  display: block;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.burger-button span::before, .burger-button span::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: #5c3710;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+}
+
+.burger-button span::before {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+.burger-button span::after {
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+.burger-button.actived span {
+  background-color: transparent;
+}
+
+.burger-button.actived span::before {
+  -webkit-transform: translateY(0) rotateZ(45deg);
+          transform: translateY(0) rotateZ(45deg);
+  background: #e0a800;
+}
+
+.burger-button.actived span::after {
+  -webkit-transform: translateY(0) rotateZ(-45deg);
+          transform: translateY(0) rotateZ(-45deg);
+  background: #e0a800;
 }
 
 .burger-overlay {
