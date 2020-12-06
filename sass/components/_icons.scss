@@ -14,14 +14,14 @@
         left: 25%;
         background-color: $primary;
         position: absolute;
-        border: 3px solid white;
+        border: 3px solid $white;
         border-radius: 50%;
     }
 
     &__flash {
         width: 6px;
         height: 6px;
-        background-color: white;
+        background-color: $white;
         position: absolute;
         top: 10%;
         left: 10%;

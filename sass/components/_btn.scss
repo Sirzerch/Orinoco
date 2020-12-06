@@ -3,8 +3,8 @@
     border-radius: .25rem;
     text-decoration: none;
 
-    &-primary {
-        color: $blanc;
+    &--primary {
+        color: $white;
         box-shadow: 3px 3px $warning, -10px -10px 80px 0px $secondary;
         margin: 0 3px 3px 0;
 
@@ -101,19 +101,6 @@
     }
 }
 
-.total {
-    position: absolute;
-    bottom: -3rem;
-    padding: 5px;
-    background: $primary;
-    color: $blanc;
-    border-radius: .25rem;
-
-    & p {
-        margin: 0;
-    }
-}
-
 .commande {
     position: absolute;
     bottom: -3rem;
@@ -132,7 +119,7 @@
 
     & a {
         margin: 0;
-        color: $blanc;
+        color: $white;
         text-decoration: none;
     }
 }

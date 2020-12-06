@@ -2,22 +2,8 @@
 export default class CreateElement {
     constructor() {
     }
-
-    createTr(className, firstSetAttributeName, firstSetAttributeValue) {
-        let tr = document.createElement('div')
-        tr.className = className
-        tr.setAttribute(firstSetAttributeName, firstSetAttributeValue)
-        return tr
-    }
-    createTd(className, firstSetAttributeName, firstSetAttributeValue, innerHTML = null) {
-        let td = document.createElement('div')
-        td.className = className
-        td.setAttribute(firstSetAttributeName, firstSetAttributeValue)
-        if(innerHTML != null) {
-            td.innerHTML = innerHTML
-        }
-        return td
-    }
+    
+    //Formate la balise <img>
     createImg(className, src, alt) {
         let img = document.createElement('img')
         img.className = className
@@ -25,48 +11,58 @@ export default class CreateElement {
         img.alt = alt
         return img
     }
+    //Formate la balise <a>
     createLink(className, innerHTML, href, firstSetAttributeName = null, firstSetAttributeValue = null, secondSetAttributeName = null, secondSetAttributeValue = null) {
         let a = document.createElement('a')
         a.className = className
         a.innerHTML = innerHTML
         a.href = href
-        if(firstSetAttributeName != null && firstSetAttributeValue != null) {
+        if (firstSetAttributeName != null && firstSetAttributeValue != null) {
             a.setAttribute(firstSetAttributeName, firstSetAttributeValue)
         }
-        if(secondSetAttributeName != null && secondSetAttributeValue != null) {
+        if (secondSetAttributeName != null && secondSetAttributeValue != null) {
             a.setAttribute(secondSetAttributeName, secondSetAttributeValue)
         }
         return a
     }
-    createDiv(className, firstSetAttributeName = null, firstSetAttributeValue = null) {
+    //Formate la balise <div>
+    createDiv(className, firstSetAttributeName = null, firstSetAttributeValue = null, innerHTML = null) {
         let div = document.createElement('div')
         div.className = className
         if (firstSetAttributeName != null && firstSetAttributeValue != null) {
             div.setAttribute(firstSetAttributeName, firstSetAttributeValue)
         }
+        if (innerHTML != null) {
+            div.innerHTML = innerHTML
+        }
+
         return div
     }
+    //Formate la balise <option>
     createOption(innerHTML, value) {
         let option = document.createElement('option')
         option.value = value
         option.innerHTML = innerHTML
         return option
     }
+    //Formate la balise <p>
     createParagraphe(className, innerHTML, firstSetAttributeName = null, firstSetAttributeValue = null) {
         let p = document.createElement('p')
         p.className = className
         p.innerHTML = innerHTML
-        if(firstSetAttributeName != null && firstSetAttributeValue != null) {
+        if (firstSetAttributeName != null && firstSetAttributeValue != null) {
             p.setAttribute(firstSetAttributeName, firstSetAttributeValue)
         }
         return p
     }
+    //Formate la balise <h>
     createTitle(className, innerHTML) {
         let h5 = document.createElement('h5')
         h5.className = className
         h5.innerHTML = innerHTML
         return h5
     }
+    //Formate la balise <label>
     createLabel(className, firstSetAttributeName, firstSetAttributeValue, innerHTML) {
         let label = document.createElement('label')
         label.className = className
@@ -74,6 +70,7 @@ export default class CreateElement {
         label.innerHTML = innerHTML
         return label
     }
+    //Formate la balise <select>
     createSelect(className, firstSetAttributeName, firstSetAttributeValue) {
         let select = document.createElement('select')
         select.className = className

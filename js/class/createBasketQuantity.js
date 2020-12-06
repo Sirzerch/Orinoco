@@ -5,7 +5,7 @@ export default class createBasketQuantity {
 		this.products = []
 	}
 
-	//  ajouter un produit depuis la page produit
+	//Ajouter un produit depuis la page produit
 	addProduct(data) {
 		let product = {
 			id: '',
@@ -15,6 +15,7 @@ export default class createBasketQuantity {
 		}
 		let array = this.products
 
+		//Trouve l'id du produit sélectionné dans le tableau
 		let findIndex = array.findIndex(prod => prod.id === `${data._id}`)
 		let find = array[findIndex]
 
@@ -27,7 +28,7 @@ export default class createBasketQuantity {
 			product.price = `${data.price}`
 			product.number = 1
 		}
-		//MAJ du total
+		//Mise à jour du total
 		this.calculateTotal()
 		if (find) {
 			find.total = this.total
@@ -35,13 +36,12 @@ export default class createBasketQuantity {
 		else {
 			product.total = this.total
 		}
-		//MAJ du storage
+		//Mise à jour du storage
 		this.setBasketStorage(find)
 	}
 
-	// MAJ la quantité
+	//Mise à jour de la quantitée
 	updateProductQuantity(id, operation = "less") {
-
 		let array = this.products
 
 		let findIndex = array.findIndex(prod => prod.id === id)
@@ -60,7 +60,7 @@ export default class createBasketQuantity {
 		return find
 	}
 
-	// calcul du prix total du panier
+	//Calcul le prix total du panier
 	calculateTotal() {
 		//Réinitialise le total
 		this.total = 0
@@ -76,6 +76,7 @@ export default class createBasketQuantity {
 			let productStringify = JSON.stringify(find)
 			localStorage.setItem('product', productStringify)
 		}
+		//Sinon :
 		else {
 			//Envoie le dernier objet du tableau dans le localStorage
 			for (let i = 0; i < this.products.length; i++) {
@@ -85,7 +86,7 @@ export default class createBasketQuantity {
 		}
 	}
 
-	// remplit l'objet "panier" avec le localstorage
+	//Remplit l'objet "panier" avec les données localstorage
 	getBasketStorage() {
 		let getItems = JSON.parse(localStorage.getItem('product'))
 		return getItems
