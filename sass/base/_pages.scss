@@ -9,3 +9,15 @@
         display: block;
     }
 }
+
+.empty-page {
+    color: $white;
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    align-items: center;
+    margin: 0;
+    background: $primary;
+    opacity: 0;
+    animation: fondu 1000ms 1000ms forwards;
+}

@@ -12,8 +12,10 @@
     <!--Pages de Orinoco-->
     <div id="pages">
         <header class="header">
+
             <!--Titre du header et du site-->
             <div class="header__title">
+
                 <!--Icon du site-->
                 <div class="icon">
                     <div class="icon__circle"></div>
@@ -21,6 +23,7 @@
                 </div>
                 <p>rinoco</p>
             </div>
+
             <!--Barre de navigation-->
             <div id="js-header__nav">
                 <nav class="header__nav">
@@ -46,6 +49,7 @@
             </div>
             <!--Icon sous la barre de Navigation-->
             <div class="icon--bar"></div>
+
             <!--Icon burger, menu responsive et sidebar-->
             <div id="burger-menu">
                 <div class="burger-button" id="js-burger-button">
@@ -60,33 +64,40 @@
 
         <!-- Page Accueil-->
         <div class="active" id="page0">
-            <div class="table mt-3 mb-2">
-                <table id="listedesproduits">
+            <div class="table">
+                <table id="js-accueil">
                     <!--Affichage du contenu de la page lorsque l'utilisateur 'click' sur le lien correspondant dans la barre de navigation-->
                 </table>
             </div>
         </div>
+
         <!--Page Produit-->
         <div id="page1">
             <div class="card">
-                <div id="produit">
+                <div id="js-produit">
                     <!--Affichage du contenu de la page lorsque l'utilisateur 'click' sur le lien correspondant dans la barre de navigation-->
                 </div>
             </div>
         </div>
+
         <!--Page Panier-->
         <div id="page2">
             <div class="table">
-                <div id="panier">
+                <div id="js-panier">
                     <!--Affichage du contenu de la page lorsque l'utilisateur 'click' sur le lien correspondant dans la barre de navigation-->
                 </div>
-                <!--Bouton de commande pour accéder au formulaire-->
+
+                <!--Affiche le total-->
                 <div class="total js-commande">
                     <p>Sous-total : <span id="price">0</span>£</p>
                 </div>
+
+                <!--Bouton de commande pour accéder au formulaire-->
                 <div class="commande">
                     <a href="#modal1" class="js-modal">Passer la Commande</a>
                 </div>
+                
+                <!--Modal-->
                 <aside id="modal1" class="modal" style="display: none;">
                     <div class="modal__contains">
                         <div class="modal__title">
@@ -130,10 +141,11 @@
                 </aside>
             </div>
         </div>
+
         <!--Page Commande-->
         <div id="page3">
             <div class="card">
-                <div id="commande">
+                <div id="js-commande">
                     <!--Affichage du contenu de la page lorsque l'utilisateur 'click' sur le lien correspondant dans la barre de navigation-->
                 </div>
             </div>

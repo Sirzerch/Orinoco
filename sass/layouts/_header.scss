@@ -45,7 +45,7 @@
     
             &.active {
                 background: $primary;
-                color: $blanc;
+                color: $white;
                 transition: all 500ms;
                 border-radius: .25rem;
             }
@@ -72,7 +72,7 @@
     }
     .header__nav {
         & a {
-            color: $blanc;
+            color: $white;
 
             &.active {
                 background: $warning;

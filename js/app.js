@@ -17,10 +17,12 @@ const url = "http://localhost:3000/api/cameras/"
 
 //Formate la page ACCUEIL
 function formatAccueil(data) {
+    let div = createElement.createDiv('table__container')
     for (let cam of data) {
         let tr = createPage.createProductOfHome(cam)
-        let list = $('#listedesproduits')
-        list.appendChild(tr)
+        let accueil = $('#js-accueil')
+        accueil.appendChild(div)
+        div.append(tr)
     }
 }
 //Réalise un appel API pour créer la page ACCUEIL
@@ -35,9 +37,9 @@ async function getDataAccueil() {
 //Formate la page PRODUIT
 function formatProduit(data) {
     let tr = createPage.createProductOfProduct(data)
-    $('#produit').append(tr)
+    $('#js-produit').append(tr)
     
-    let a = $('#produit a')
+    let a = $('#js-produit a')
 
     getDataPanier(a)
 }
@@ -54,7 +56,7 @@ function getDataProduit(links) {
             let pageProduit = page[1]
             pageProduit.click()
 
-            $('#produit').innerHTML = ''
+            $('#js-produit').innerHTML = ''
 
             let url = `http://localhost:3000/api/cameras/${getItem}`
 
@@ -71,7 +73,7 @@ function FormatPanier(data) {
     let div = createPage.createProductOfBasket(data)
     let btnOfQuantity = null
     if (div !== null) {
-        $('#panier').append(div)
+        $('#js-panier').append(div)
         btnOfQuantity = document.querySelector(`.js-quantity-${data._id}`)
         quantityProduct(btnOfQuantity)
     }
@@ -96,10 +98,10 @@ function getDataPanier(a) {
         let pagePanier = page[2]
         pagePanier.click()
 
-        let panierVide = document.querySelectorAll('#panier p.text-center--white')
+        let panierVide = document.querySelectorAll('#js-panier p.empty-page')
 
         if (panierVide.length == 1) {
-            $('#panier').innerHTML = ''
+            $('#js-panier').innerHTML = ''
         }
 
         let url = `http://localhost:3000/api/cameras/${getItem}`
@@ -136,14 +138,14 @@ async function getDataCommande(response) {
         let pageProduit = page[3]
         pageProduit.click()
 
-        document.querySelectorAll('#commande p.text-center--white')
+        document.querySelectorAll('#js-commande p.empty-page')
 
-        $('#commande').innerHTML = ''
+        $('#js-commande').innerHTML = ''
 
         let total = $('#price').innerHTML
 
         let div = createPage.createPageCommande(responseData, total)
-        $('#commande').append(div)
+        $('#js-commande').append(div)
     }
 }
 
@@ -186,16 +188,16 @@ document.forms['inscription'].addEventListener('submit', async function (e) {
 
 //Création du HTML des pages du site lors du chargement de l'ACCUEIL
 getDataAccueil().then(function () {
-    let links = document.querySelectorAll('#listedesproduits a')
+    let links = document.querySelectorAll('#js-accueil a')
 
-    let firstP = createElement.createParagraphe('text-center--white', "Aucun produit n'a été sélectionné")
-    $('#produit').append(firstP)
+    let firstP = createElement.createParagraphe('empty-page', "Aucun produit n'a été sélectionné")
+    $('#js-produit').append(firstP)
 
-    let secondP = createElement.createParagraphe('text-center--white', "Le panier est vide")
-    $('#panier').append(secondP)
+    let secondP = createElement.createParagraphe('empty-page', "Le panier est vide")
+    $('#js-panier').append(secondP)
 
-    let thirdP = createElement.createParagraphe('text-center--white', "Aucune commande effectuée")
-    $('#commande').append(thirdP)
+    let thirdP = createElement.createParagraphe('empty-page', "Aucune commande effectuée")
+    $('#js-commande').append(thirdP)
 
     // ajout des listeners produits
     getDataProduit(links)

@@ -1,7 +1,7 @@
 //Modal pour le formulaire 
-
 let modal
 
+//Ouvre la modal au 'click' de l'utilisateur
 const openModal = function (e) {
     e.preventDefault()
     let target = document.querySelector(this.getAttribute('href'))
@@ -11,6 +11,7 @@ const openModal = function (e) {
     modal.querySelector('.js-modal-close').addEventListener('click', closeModal)
 }
 
+//Ferme la modal au 'click' de l'utilisateur
 const closeModal = function (e) {
     e.preventDefault()
     e.stopPropagation()
@@ -29,7 +30,7 @@ window.addEventListener('keydown', function (e) {
     }
 })
 
-//Ferme la modal si la page Panier n'est pas active
+//Ferme la modal si la page PANIER n'est pas active
 const pageActive = function () {
     let i = document.querySelectorAll('#pages .header__nav a')
 

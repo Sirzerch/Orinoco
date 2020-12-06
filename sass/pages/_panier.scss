@@ -1,6 +1,56 @@
-#panier {
+.total {
+    position: absolute;
+    bottom: -3rem;
+    padding: 5px;
     background: $primary;
-    opacity: 0;
-    animation: fondu 1000ms 1000ms forwards;
-    color: $blanc;
+    color: $white;
+    border-radius: .25rem;
+
+    & p {
+        margin: 0;
+    }
+}
+
+.quantity {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+    flex-direction: column-reverse;
+    
+    
+    &__less {
+        color: $white;
+        text-decoration: none;
+        border-radius: 100%;
+        padding: 0 5px 0 5px;
+        box-shadow: 1px 1px $warning, 1px 0px 30px 0px $secondary;
+        margin: 0 10px 10px 8px;
+
+        &:hover {
+            box-shadow: none;
+            margin: 0 10px 8px 10px;
+            transition: ease-in-out 100ms;
+        }
+    }
+
+    &__more {
+        color: $white;
+        text-decoration: none;
+        border-radius: 100%;
+        padding: 0 4px 0 4px;
+        box-shadow: 1px 1px $warning, 1px 0px 30px 0px $secondary;
+        margin: 0 10px 10px 10px;
+
+        &:hover {
+            box-shadow: none;
+            margin: 0 8px 8px 10px;
+            transition: ease-in-out 100ms;
+        }
+    }
+}
+
+@media all and (max-width: 920px) {
+    .quantity {
+        flex-direction: row;
+    }
 }

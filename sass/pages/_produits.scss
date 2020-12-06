@@ -1,52 +1,6 @@
 //Page 1 (cf ./base/pages)
-#produit {
-    background: $primary;
-    opacity: 0;
-    animation: fondu 1000ms 1000ms forwards;
-}
-
-.col {
-    padding-right: 0;
-    padding-left: 0;
-
-    &-md-4 {
-        display: flex;
-
-    }
-
-    &-md-8 {
-        flex: 100%;
-    }
-}
 
 h5 {
     margin-bottom: .75rem;
 }
 
-.w-50 {
-    width: 50%;
-    padding: 1.25rem;
-}
-
-.text-center--white {
-    color: $blanc;
-    display: flex;
-    justify-content: center;
-    height: 300px;
-    align-items: center;
-    margin: 0;
-}
-
-@media all and (max-width: 920px) {
-
-    .col-md-4 {
-        display: block;
-    }
-
-    .w-50 {
-        margin-left: auto;
-        margin-right: auto;
-        width: 90%;
-        padding: 0.75rem;
-    }
-}
