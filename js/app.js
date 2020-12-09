@@ -152,18 +152,18 @@ async function getDataCommande(response) {
 document.forms['inscription'].addEventListener('submit', async function (e) {
     e.preventDefault()
     let inputs = this
-    let error
+    let error = document.getElementById('js-error')
 
     //Si tous les champs du formulaire ne sont pas remplie, une notification est envoyer
-    for(var i = 0; i < inputs.length; i++) {
+    for(let i = 0; i < inputs.length; i++) {
         if(!inputs[i].value) {
-            error = "Veuillez renseigner tous les champs";
+            error.innerHTML = "Veuillez renseigner correctement tous les champs";
         }
     }
 
     //S'il y a une erreur dans le formulaire, ne le soumet pas
-    if(error) {
-        document.getElementById('js-error').innerHTML = error
+    if(!error.innerHTML == '') {
+        return error.innerHTML
     }//Sinon soumet le formulaire 
     else {
         let products = createPage.allId()//ATTENTION 
