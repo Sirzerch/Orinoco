@@ -149,7 +149,7 @@ export default class CreatePage {
 		}
 		return div
 	}
-
+	//Retourne les identifiants du tableau pour l'envoie en methode POST
 	allId() {
 		return this.idsOfProducts
 	}

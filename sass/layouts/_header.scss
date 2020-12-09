@@ -67,9 +67,6 @@
 }
 
 @media all and (max-width: 750px) {
-    #js-header__nav {
-        display: none;
-    }
     .header__nav {
         & a {
             color: $white;
