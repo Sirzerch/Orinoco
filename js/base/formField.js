@@ -2,6 +2,7 @@
 let form = document.querySelector('#inscription')
 let error = document.getElementById('js-error')
 
+
 //Valide ou non le champ firstName
 form.firstName.addEventListener('input', function () {
     //Récupère la balise small

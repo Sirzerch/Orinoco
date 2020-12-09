@@ -53,6 +53,7 @@ function getDataProduit(links) {
 
             let page = document.getElementsByTagName('a')
             let pageProduit = page[1]
+            //Etablie un 'click' pour déclencher l'effet sur la barre de navigation
             pageProduit.click()
 
             $('#js-produit').innerHTML = ''
@@ -95,8 +96,9 @@ function getDataPanier(a) {
 
         let page = document.getElementsByTagName('a')
         let pagePanier = page[2]
+        //Etablie un 'click' pour déclencher l'effet sur la barre de navigation
         pagePanier.click()
-
+        
         let panierVide = document.querySelectorAll('#js-panier p.empty-page')
 
         if (panierVide.length == 1) {
@@ -127,15 +129,15 @@ function quantityProduct(btnOfQuantity) {
     })
 }
 
-
 //Si la response a le statut 200, récupère les données du formulaire pour créer la page COMMANDE
 async function getDataCommande(response) {
     if (response.ok) {
         let responseData = await response.json()
 
         let page = document.getElementsByTagName('a')
-        let pageProduit = page[3]
-        pageProduit.click()
+        let pageCommande = page[3]
+        //Etablie un 'click' pour déclencher l'effet sur la barre de navigation
+        pageCommande.click()
 
         document.querySelectorAll('#js-commande p.empty-page')
 
@@ -166,7 +168,7 @@ document.forms['inscription'].addEventListener('submit', async function (e) {
         return error.innerHTML
     }//Sinon soumet le formulaire 
     else {
-        let products = createPage.allId()//ATTENTION 
+        let products = createPage.allId()
         let formData = new FormData(inputs)
         let contact = {}
     
