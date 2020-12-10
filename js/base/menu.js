@@ -11,6 +11,9 @@ let activatedBurger = 'burger-activated'
 //Cible la barre de navigation
 let nav = contentHeaderNav.childNodes[1]
 
+//Ajoute le contenu de la barre de navigation dans la sidebar
+burgerSidebarBody.innerHTML = contentHeaderNav.innerHTML
+
 //Système d'onglets affichant le contenu de la page correspondant au "click" de l'utilisateur
 let navOngletsPages = function () {
     let links = document.querySelectorAll('#pages .header__nav a')
@@ -52,23 +55,20 @@ let closeBurger = function (e) {
 }
 burgerButton.addEventListener('click', openBurger)
 
-
-//Ajoute le contenu de la barre de navigation dans la sidebar
-burgerSidebarBody.innerHTML = contentHeaderNav.innerHTML
-
 //Fait Office de média Queries pour la barre de navigation
 function onResize() {
     //Si la largeur est inférieur à 750 alors :
-    if(window.innerWidth < 750) {
+    if (window.innerWidth < 750) {
         //On enlève la barre de navigation pour grand écran 
         nav.remove(nav)
-
-    }else { //Sinon on ajoute le contenu de la sidebar dans la barre de navigation 
+    }
+    else { //Sinon on ajoute le contenu de la sidebar dans la barre de navigation 
         contentHeaderNav.innerHTML = burgerSidebarBody.innerHTML
         navOngletsPages()
     }
 }
-window.onresize = onResize
+window.addEventListener('resize', onResize)
+window.addEventListener('load', onResize)
 
 
 

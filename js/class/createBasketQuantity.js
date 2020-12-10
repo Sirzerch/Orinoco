@@ -5,7 +5,7 @@ export default class createBasketQuantity {
 		this.products = []
 	}
 
-	//Ajouter un produit depuis la page produit
+	//Formate et ajoute un produit depuis la page produit dans la page panier
 	addProduct(data) {
 		let product = {
 			id: '',
@@ -19,7 +19,7 @@ export default class createBasketQuantity {
 		let findIndex = array.findIndex(prod => prod.id === `${data._id}`)
 		let find = array[findIndex]
 
-		// si le produit est déjà présent dans l'attribut
+		//Si le produit est déjà présent dans l'attribut
 		if (find) {
 			find.number++
 		} else {

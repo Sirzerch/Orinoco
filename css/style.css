@@ -405,9 +405,6 @@ img {
 }
 
 @media all and (max-width: 920px) {
-  .card__body {
-    padding: 0.375rem;
-  }
   .card__container {
     display: block;
   }
@@ -416,6 +413,12 @@ img {
     margin-right: auto;
     width: 90%;
     padding: 0.75rem;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .card__body {
+    padding: 0.375rem;
   }
 }
 
@@ -582,6 +585,7 @@ img {
 
 .align-middle {
   margin: 10px;
+  padding: 10px;
 }
 
 @media all and (max-width: 920px) {

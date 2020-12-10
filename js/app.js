@@ -53,6 +53,7 @@ function getDataProduit(links) {
             let getItem = localStorage.getItem('ids')
 
             let page = document.getElementsByTagName('a')
+            console.log(page)
             let pageProduit = page[1]
             //Etablie un 'click' pour déclencher l'effet sur la barre de navigation
             pageProduit.click()
